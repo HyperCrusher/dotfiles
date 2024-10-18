@@ -45,7 +45,6 @@
 
       blur-background-exclude = [
         "window_type = 'dock'"
-        "_GTK_FRAME_EXTENTS@:c"
       ];
     };
   };
