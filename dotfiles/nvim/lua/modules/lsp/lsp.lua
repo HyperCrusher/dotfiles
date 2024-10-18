@@ -48,10 +48,11 @@ return {
         config = function(_, opts)
             local lspconfig = require("lspconfig")
             for _, v in pairs(opts.servers) do -- Makes every server use onAttach, and cmp
-                lspconfig[v].setup({
+                local config = {
                     capabilities = require("cmp_nvim_lsp").default_capabilities(),
                     on_attach = onAttach
-                })
+                }
+                lspconfig[v].setup(config)
             end
             vim.diagnostic.config(opts.diagnostics or {})
         end
