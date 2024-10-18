@@ -21,13 +21,14 @@
   };
 
   boot = {
-    kernelPackages = pkgs.linuxKernel.packages.linux_xanmod_latest;
+    kernelPackages = pkgs.linuxKernel.packages.linux_xanmod_stable;
     kernelParams = [
       "reboot=acpi"
     ];
     loader = {
       grub = {
         device = "nodev";
+        useOSProber = true;
         efiSupport = true;
         efiInstallAsRemovable = true;
         enable = true;
