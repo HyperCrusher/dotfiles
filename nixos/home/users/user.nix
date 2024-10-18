@@ -1,4 +1,4 @@
-{ user, ... }:
+{ user, pkgs, ... }:
 {
   # I want everything to be 'opt-in' and so I dont want too many default.nix's
   imports = [
@@ -23,6 +23,9 @@
     username = "${user.name_lower}";
     homeDirectory = "/home/${user.name_lower}";
     stateVersion = "23.11";
+    packages = [
+      pkgs.anki-bin
+    ];
   };
 
   dconf.settings = {
