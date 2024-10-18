@@ -9,7 +9,7 @@
     };
     neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
     zen-browser = {
-      url = "github:ch4og/zen-browser-flake";
+      url = "github:omarcresp/zen-browser-flake";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     wpsFonts.url = "github:hypercrusher/wpsfonts";
