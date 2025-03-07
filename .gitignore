@@ -1,1 +1,3 @@
 .direnv
+dotfiles/emacs/eln-cache/
+dotfiles/emacs/tldr/
