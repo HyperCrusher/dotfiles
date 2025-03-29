@@ -1,0 +1,46 @@
+{
+    "$schema": "https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/schema.json",
+    "transient_prompt": {
+        "template": " ",
+        "foreground": "magenta",
+        "background": "transparent"
+    },
+    "blocks": [
+        {
+            "type": "prompt",
+            "alignment": "left",
+            "segments": [
+                {
+                    "properties": {
+                        "cache_duration": "none"
+                    },
+                    "template": "{{ if eq .PWD \"/\" }}/{{ else }}{{ if eq .PWD \"~\" }}~{{ else }}{{ if eq .Parent \"/\" }}/{{ .Folder }}{{ else }}{{base .Parent }}/{{ .Folder }}{{ end }}{{ end }}{{ end }}",
+                    "foreground": "blue",
+                    "background": "transparent",
+                    "type": "path",
+                    "style": "plain"
+                }
+            ],
+            "newline": true
+        },
+        {
+            "type": "prompt",
+            "alignment": "left",
+            "segments": [
+                {
+                    "properties": {
+                        "cache_duration": "none"
+                    },
+                    "template": " ",
+                    "foreground": "magenta",
+                    "background": "transparent",
+                    "type": "text",
+                    "style": "plain"
+                }
+            ],
+            "newline": true
+        }
+    ],
+    "version": 3,
+    "final_space": true
+}

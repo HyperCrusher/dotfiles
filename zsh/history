@@ -1,0 +1,1095 @@
+: 1738044630:0;nvim .config/zsh/omp.json
+: 1738044630:0;install zoxide
+: 1738044630:0;sleep --help
+: 1738044630:0;sleep 0.1
+: 1738044630:0;ls -color
+: 1738044630:0;test
+: 1738044630:0;setset
+: 1738044630:0;staset
+: 1738044630:0;asetaet
+: 1738044630:0;eastate
+: 1738044630:0;command clear
+: 1738044630:0;_post_command()
+: 1738044630:0;_post_command
+: 1738044630:0;nvim .config/ghostty/config
+: 1738044630:0;echo text
+: 1738044630:0;echo =>
+: 1738044630:0;echo "=>"
+: 1738044630:0;echo "https://google.com"
+: 1738044630:0;vi
+: 1738044630:0;Hyprland -v
+: 1738044630:0;yay -Ss magick
+: 1738044630:0;yay -Ss magick rock
+: 1738044630:0;hyprctl monitors
+: 1738044630:0;yay -Ss proton
+: 1738044630:0;yay -Ss proton pass
+: 1738044630:0;install proton-pass
+: 1738044630:0;yay -S proton-pass
+: 1738044630:0;yay -Ss vencord
+: 1738044630:0;yay -S webcord-vencord-git
+: 1738044630:0;yay -S hyprshot
+: 1738044630:0;thuanr
+: 1738044630:0;htop
+: 1738044630:0;zen-browser
+: 1738044630:0;yay -S hyprpaper
+: 1738044630:0;webcord
+: 1738044630:0;killall Electron
+: 1738044630:0;kill 215253
+: 1738044630:0;yay -S ani-cli
+: 1738044630:0;pavucontrol
+: 1738044630:0;yay -Ss 
+: 1738044630:0;yay -Ss claude
+: 1738044630:0;cd rofi
+: 1738044630:0;yay -Ss rofi
+: 1738044630:0;pacman -S rofi-wayland
+: 1738044630:0;yay -S rofi-wayland
+: 1738044630:0;rofi
+: 1738044630:0;copy rofi/
+: 1738044630:0;cd system
+: 1738044630:0;cd common
+: 1738044630:0;nvim settings.nix
+: 1738044630:0;cd machines
+: 1738044630:0;cd home-desktop
+: 1738044630:0;nvim wm.nix
+: 1738044630:0;cd ../../../
+: 1738044630:0;cd nixos
+: 1738044630:0;cd packages
+: 1738044630:0;nvim dotfiles.nix
+: 1738044630:0;cd wms
+: 1738044630:0;nvim bspwm.nix
+: 1738044630:0;hyprctl workspace m+1
+: 1738044630:0;hyprctl workspace
+: 1738044630:0;hyprctl workspace 2
+: 1738044630:0;hyprctl workspace m-1
+: 1738044630:0;hyprctl dispatch workspace m-1
+: 1738044630:0;hyprctl dispatch workspace m+1
+: 1738044630:0;hyprctl dispatch workspace 2
+: 1738044630:0;hyprctl workspaces
+: 1738044630:0;hyprctl workspacerules
+: 1738044630:0;hyprctl plugins
+: 1738044630:0;hyprctl plugin
+: 1738044630:0;yay -S cpio
+: 1738044630:0;hyprpm -v update
+: 1738044630:0;hyprpm list
+: 1738044630:0;hyprctl plugin list
+: 1738044630:0;hyprpm remove split-monitor-workspaces
+: 1738044630:0;hyprpm add https://github.com/Duckonaut/split-monitor-workspaces
+: 1738044630:0;hyprpm enable split-monitor-workspaces
+: 1738044630:0;hyprpm reload
+: 1738044630:0;hyprctl dispatch split-workspace 2
+: 1738044630:0;hyprctl dispatch split-workspace +1
+: 1738044630:0;hyprctl dispatch split-workspace -1
+: 1738044630:0;hyprctl dispatch split-workspace m+1
+: 1738044630:0;nvim .config/hypr/hyprland.conf
+: 1738044630:0;mkdir -p .config/emacs/
+: 1738044630:0;nvim test.el
+: 1738044630:0;rm places
+: 1738044630:0;nvim early-init.el
+: 1738044630:0;mkdir lisp/
+: 1738044630:0;cd Documents
+: 1738044630:0;mkdir {personal,work}
+: 1738044630:0;nvim package-manager.el
+: 1738044630:0;nvim post-init.el
+: 1738044630:0;cd /etc/
+: 1738044630:0;.
+: 1738044630:0;ls -la
+: 1738044630:0;ls -l
+: 1738044630:0;ls -l --almost-all --human-readable
+: 1738044630:0;/bin/ls -l
+: 1738044630:0;/bin/ls -l --almost-all
+: 1738044630:0;/bin/ls -l --almost-all --human-readable
+: 1738044630:0;/bin/ls -ls --almost-all --human-readable
+: 1738044630:0;/bin/ls -la --almost-all --human-readable
+: 1738044630:0;eza -al --group-directories-first
+: 1738044630:0;eza -al
+: 1738044630:0;eza -al --color=always --icons
+: 1738044630:0;/bin/ls -la
+: 1738044630:0;/bin/ls -la --human-readable
+: 1738044630:0;/bin/ls -la --human-readable --color
+: 1738044630:0;yay -S ranger
+: 1738044630:0;ranger
+: 1738044630:0;lazygit dotfiles
+: 1738044630:0;ls-a
+: 1738044630:0;ls --icons
+: 1738044630:0;exa -a
+: 1738044630:0;exa -a --color=always --icons
+: 1738044630:0;eza --long
+: 1738044630:0;eza --long --all
+: 1738044630:0;eza --long --all --group --header --icons --git
+: 1738044630:0;eza --long --all --group --header --icons --git --time-style=long-iso
+: 1738044630:0;eza --long --all --group --header --icons --git --time-style=long-iso --color
+: 1738044630:0;eza --long --all --group --header --icons --git --time-style=long-iso --color=always
+: 1738044630:0;/bin/ls -lAgh1vc
+: 1738044630:0;/bin/ls -lAgh1vC
+: 1738044630:0;exa
+: 1738044630:0;exa -C
+: 1738044630:0;exa --h
+: 1738044630:0;exa --help
+: 1738044630:0;ls -dired
+: 1738044630:0;ls --dired
+: 1738044630:0;/bin/ls --dired
+: 1738044630:0;/bin/ls --dired -lAgh1v
+: 1738044630:0;/bin/ls -lAgh1v
+: 1738044630:0;eza --oneline --long
+: 1738044630:0;eza --oneline --long -a --time-style=long-iso
+: 1738044630:0;eza --oneline --long -at
+: 1738044630:0;eza --oneline --long -aT
+: 1738044630:0;eza --oneline --long -a
+: 1738044630:0;eza --oneline --long -a --no-user
+: 1738044630:0;ls --help
+: 1738044630:0;nvim .zsh
+: 1738044630:0;ear
+: 1738044630:0;ils
+: 1738044630:0;cleat
+: 1738044630:0;echo $TERM
+: 1738044630:0;nvim lisp/keybinds.el
+: 1738044630:0;cd .config/nvim
+: 1738044630:0;hyprctl
+: 1738044630:0;hyprctl clients
+: 1738044630:0;hyprctl clients | grep -A 2 "Window"
+: 1738044630:0;mkdir bkup
+: 1738044630:0;cd bkup
+: 1738044630:0;nvim dirvish.el
+: 1738044630:0;tr
+: 1738044630:0;rm \#core.el\#
+: 1738044630:0;/bin/ls
+: 1738044630:0;/bin/ls -D
+: 1738044630:0;nvim ../post-init.el
+: 1738044630:0;man
+: 1738044630:0;yay -S man
+: 1738044630:0;man tldr
+: 1738044630:0;cd emavs
+: 1738044630:0;nvim modules/dirvish.el
+: 1738044630:0;nvim lsp.el
+: 1738044630:0;nvim schedule.md
+: 1738044630:0;nvim app.ts
+: 1738044630:0;yay -Ss ccls
+: 1738044630:0;yay -Ss clangd
+: 1738044630:0;yay -Ss c language server
+: 1738044630:0;yay -Ss typescript
+: 1738044630:0;yay -S typescript-language-server
+: 1738044630:0;yay -Ss zig
+: 1738044630:0;install zig zls
+: 1738044630:0;yay -S zig zls
+: 1738044630:0;yay -Ss fasm
+: 1738044630:0;yay -S fasm
+: 1738044630:0;yay -Ss bash-language
+: 1738044630:0;install bash-language-server
+: 1738044630:0;yay -S bash-language-server
+: 1738044630:0;yay -Ss json-language
+: 1738044630:0;yay -S vscode-json-languageserver
+: 1738044630:0;yay -Ss toml-language
+: 1738044630:0;yay -Ss yaml-language
+: 1738044630:0;yay -S yaml-language-server
+: 1738044630:0;yay -Ss rust language server
+: 1738044630:0;yay -S lua-language-server
+: 1738044630:0;yay -S gopls
+: 1738044630:0;yay -S go
+: 1738044630:0;yay -Ss javascript language server
+: 1738044630:0;hyprctl restart
+: 1738044630:0;hyprctl refresh
+: 1738044630:0;hyprctl 
+: 1738044630:0;hyprctl reload
+: 1738044630:0;hyprctl hyprpaper
+: 1738044630:0;hyprpaper
+: 1738044630:0;nvim imgui.h
+: 1738044630:0;yay -Ss emacs one
+: 1738044630:0;emacs -d
+: 1738044630:0;emacs --help
+: 1738044630:0;kill emacs
+: 1738044630:0;emacsclient -c -a ""
+: 1738044630:0;cd ghostty
+: 1738044630:0;gh auth login
+: 1738044630:0;gh config set -h github.com git_protocol https
+: 1738044630:0;gh auth status
+: 1738044630:0;gh auth
+: 1738044630:0;gh auth setup-git
+: 1738044630:0;git
+: 1738044630:0;git config --global user.name
+: 1738044630:0;git config --global user.name "Hyper"
+: 1738044630:0;git config --global user.email "hypercrusher@proton.me"
+: 1738044630:0;git config --global user.email 
+: 1738044630:0;gh repo create
+: 1738044630:0;chmod -x test.sh
+: 1738044630:0;cd tokyo-dark
+: 1738044630:0;nvim tokyo-dark-theme.el
+: 1738044630:0;rg
+: 1738044630:0;gh repo
+: 1738044630:0;gh repo fork
+: 1738044630:0;gh repo fork emacs-mirror/emacs
+: 1738044630:0;chmod +x ./configure.ac
+: 1738044630:0;./configure.ac
+: 1738044630:0;chmod -x ./configure.ac
+: 1738044630:0;autogen.sh
+: 1738044630:0;./autogen.sh
+: 1738044630:0;./configure
+: 1738044630:0;chmod +x config.sh
+: 1738044630:0;yay -Ss webkit
+: 1738044630:0;yay -Ss webkit framework
+: 1738044630:0;install webkit2gtk
+: 1738044630:0;yay -S webkit2gtk
+: 1738044630:0;yay -R webkit2gtk
+: 1738044630:0;yay -Ss webskit2gtk
+: 1738044630:0;yay -Ss webkit2gtk
+: 1738044630:0;./configure --help
+: 1738044630:0;nvim config.sh
+: 1738044630:0;cp config.sh
+: 1738044630:0;copy config.sh
+: 1738044630:0;git checkout -b amosbird-emacs-30 master\
+git pull https://github.com/amosbird/emacs.git emacs-30\
+
+: 1738044630:0;git checkout b amosbird-emacs-30 master
+: 1738044630:0;git checkout -b amosbird-emacs-30 master
+: 1738044630:0;git pull git@github.com:amosbird/emacs.git emacs-30
+: 1738044630:0;git pull https://github.com/amosbird/emacs.git emacs-30
+: 1738044630:0;cd /usr/local
+: 1738044630:0;rm emacs-31.0.50 emacsclient
+: 1738044630:0;sudo rm emacs-31.0.50 emacsclient 
+: 1738044630:0;sudo rm emacs
+: 1738044630:0;sudo rm emacs -r
+: 1738044630:0;yay -S emacs-wayland --overwrite '*'
+: 1738044630:0;yay -Ss emacs-wayland-git
+: 1738044630:0;cd emac
+: 1738044630:0;yay -R emacs-wayland
+: 1738044630:0;./config.sh
+: 1738044630:0;make
+: 1738044630:0;sudo make install
+: 1738044630:0;emacs --daemon
+: 1738044630:0;emacsclient
+: 1738044630:0;emacs -c
+: 1738044630:0;emacs --version
+: 1738044630:0;emacsclient --help
+: 1738044630:0;emacsclient -a "" -c %F
+: 1738044630:0;lsa --tree
+: 1738044630:0;cd emmacs
+: 1738044630:0;nvim emacs
+: 1738044630:0;usermod -a -G games
+: 1738044630:0;sudo usermod
+: 1738044630:0;sudo usermod -a -G games Hyper
+: 1738044630:0;.zsh
+: 1738044630:0;groups
+: 1738044630:0;zsh .zshrc
+: 1738044630:0;rm .zshrc 
+: 1738044630:0;zen-browser --version
+: 1738044630:0;rm .cache -r
+: 1738044630:0;rm undo-fu-sesssion -r
+: 1738044630:0;cd backups
+: 1738044630:0;yay -Ss html-ls
+: 1738044630:0;yay -Ss html ls
+: 1738044630:0;yay -Ss vscode-
+: 1738044630:0;yay -Ss vscode-html-languageserver
+: 1738044630:0;yay -S vscode-html-languageserver
+: 1738044630:0;systemctl --user status pipewire
+: 1738044630:0;systemctl --user status pipewire-pulse
+: 1738044630:0;pactl sinks
+: 1738044630:0;pactl list sources
+: 1738044630:0;yay -Ss alsa
+: 1738044630:0;xinput --list
+: 1738044630:0;winput
+: 1738044630:0;yay -Ss winput
+: 1738044630:0;libinput list-devices
+: 1738044630:0;sudo libinput list-devices
+: 1738044630:0;ls /sys/class/input/*/device/name
+: 1738044630:0;ls /sys/class/input/event11/device/name
+: 1738044630:0;nvim /sys/class/input/event11/device/name
+: 1738044630:0;wireplumber
+: 1738044630:0;systemctl --user restart pipewire pipewire-pulse
+: 1738044630:0;emacs --debug-init
+: 1738044630:0;yay -S tmuc
+: 1738044630:0;yay -S tmux
+: 1738044630:0;init.el
+: 1738044630:0;emacs init.el
+: 1738044630:0;nvim init.el
+: 1738044630:0;vterm_cmd find-file
+: 1738044630:0;vterm_cmd
+: 1738044630:0;(message "hello")
+: 1738044630:0;emacsclient init.el
+: 1738044630:0;cd ../zsh
+: 1738044630:0;e omp.json
+: 1738044630:0;ls -l ~/.ssh/
+: 1738044630:0;ls 
+: 1738044630:0;chmod 700 .ssh/
+: 1738044630:0;ls -l ~/.ssh/id*
+: 1738044630:0;lsa -l ~/.ssh
+: 1738044630:0;lsa .ssh
+: 1738044630:0;mv hyper hyper.pub .ssh/
+: 1738044630:0;ls .ssh
+: 1738044630:0;ssh root@129.146.188.44
+: 1738044630:0;ssh hyper@129.146.188.44
+: 1738044630:0;ssh .ssh/hyper root@129.146.188.44
+: 1738044630:0;ssh -i .ssh/hyper root@129.146.188.44
+: 1738044630:0;ssh -i .ssh/hyper ubuntu@129.146.188.44
+: 1738044630:0;ssh - i ~/.ssh/hyper ubuntu@129.146.188.44
+: 1738044630:0;ssh -i ~/.ssh/hyper ubuntu@129.146.188.44
+: 1738044630:0;e pavucontrol.ini
+: 1738044630:0;nvim .config/pavucontrol.ini
+: 1738044630:0;sed
+: 1738044630:0;tmux
+: 1738044630:0;ls -a -c
+: 1738044630:0;ls --color
+: 1738044630:0;ssh testserver
+: 1738044630:0;yay -Ssyu
+: 1738044630:0;yay -S hyperutils-git
+: 1738044630:0;yay -Ss hyperutils
+: 1738044630:0;yay -R hyperutils-git
+: 1738044630:0;yay -R hyperland-qutils-git
+: 1738044630:0;yay -R hyprland-qutils-git
+: 1738044630:0;yay -R hyprland-qtutils-git
+: 1738044630:0;yay -R hyprcursor-git
+: 1738044630:0;yay -S hyprland -F
+: 1738044630:0;yay -S hyprutils-git
+: 1738044630:0;yay -S hyprutils hyprpaper hypreland hyprgraphics aquamarine
+: 1738044630:0;yay -S hyprutils hyprpaper hyprland hyprland-qtutils-git hyprlang-git
+: 1738044630:0;yay -S hyprutils hyprpaper hyprland hyprland-qtutils-git hyprlang-git aquamarine hyprgraphics
+: 1738044630:0;yay -S hyprutils-git hyprpaper hyprland hyprland-qtutils-git hyprlang-git aquamarine hyprgraphics
+: 1738044630:0;yay -S hyprutils-protocols-git
+: 1738044630:0;yay -Ss hyprutils
+: 1738044630:0;yay -S hyprutils-git -F
+: 1738044630:0;yay -S hyprutils-git --force
+: 1738044630:0;yay -S hyprlang-git
+: 1738044630:0;yay -R hyprland
+: 1738044630:0;yay -R aquamarine
+: 1738044630:0;yay -R hyprgraphics
+: 1738044630:0;yay -R hyprgraphics hyprpaper
+: 1738044630:0;yay -R hyprqtutils
+: 1738044630:0;yay -R hyprland-qtutils
+: 1738044630:0;yay -R hyprland-=qtutils
+: 1738044630:0;yay -R hyprlandqtutils
+: 1738044630:0;yay -S hyprland-git
+: 1738044630:0;yay -S hyprutils
+: 1738044630:0;yay -R hyprutils-git
+: 1738044630:0;yay -R hyprutils-git aquamarine-git hyprgraphics-git hyprland-qtutils-git hyprlang-git
+: 1738044630:0;yay -R hyprutils-git aquamarine-git hyprgraphics-git hyprland-qtutils-git hyprlang-git hyprcursor-git hyprland-qt-support-git
+: 1738044630:0;yay -S hyprland
+: 1738044630:0;yay -Su
+: 1738044630:0;gtk-query-settings
+: 1738044630:0;sl
+: 1738027227:0;GDK_SCALE=1 ghostty
+: 1738027355:0;gsettings
+: 1738027366:0;gsettings set 
+: 1738027379:0;gsettings set org.gnome.desktop.interface cursor-theme "Adwaita"
+: 1738027386:0;yay -Ss gnome settings
+: 1738027394:0;yay -S gnome-tweaks
+: 1738027403:0;gnome-tweaks
+: 1738028237:0;cp *
+: 1738028239:0;cp * -r
+: 1738028245:0;mkdir oldnvim
+: 1738028258:0;copy * -r
+: 1738028295:0;tldr nvim
+: 1738028391:0;nvim init.lua i
+: 1738028445:0;lt
+: 1738028696:0;nvim keymaps/plugins.lua
+: 1738028900:0;mkdir lua
+: 1738028909:0;mkdir {core,keymaps,plugins}
+: 1738028949:0;nvim options.lua
+: 1738029069:0;bat options.lua
+: 1738029075:0;cat options.lua
+: 1738043303:0;nvim -u oldnvim/init.lua
+: 1738043315:0;nvim -u oldnvim/
+: 1738043336:0;nvim -u oldnvim/init.lua oldnvim/lua/core/init.lua
+: 1738043975:0;nvim --cmd "set runtimepath+=~/oldnvim"
+: 1738044007:0;nvim --cmd "set runtimepath=~/oldnvim/"
+: 1738044042:0;nvim --cmd "set runtimepath+=~/oldnvim/"
+: 1738044083:0;rm * -r
+: 1738044088:0;mkdir .bak
+: 1738044127:0;rm ftplugin init.lua lazy-lock.json lua -r
+: 1738044142:0;cd .bak
+: 1738044145:0;mv * ..
+: 1738044151:0;rm .bak -r
+: 1738044556:0;nvim test.test
+: 1738044600:0;cd odl
+: 1738046802:0;cd lsip/mo
+: 1738046829:0;ls modules/completion
+: 1738046848:0;ls modules/lang
+: 1738047076:0;NVIM_LISTEN_ADDRESS=/tm/nvim.pipe nvim
+: 1738047101:0;alias nvd='NVIM_LISTEN_ADDRESS=/tmp/nvim.pipe nvim'  # daemon\
+alias nvc='nvim --server /tmp/nvim.pipe --remote-tab' # client
+: 1738047105:0;nvd &
+: 1738047108:0;nvc
+: 1738075113:0;yay -Ss wps
+: 1738075141:0;yay -Ss wps-office wps-office-mime wps-office-fonts
+: 1738075196:0;yay -S wps-office-bin wps-office-mime wps-office-fonts
+: 1738075521:0;yay -S wps-office-bin wps-office-fonts
+: 1738075567:0;yay -S wps-fonts
+: 1738075577:0;yay -Ss wps fonts
+: 1738075592:0;yay -R wps-office-fonts
+: 1738075599:0;yay -S ttf-wps-fonts
+: 1738133562:0;yay -S cherry-studio-bin
+: 1738133760:0;yay -R cherry-studio-bin
+: 1738133767:0;yay -S llm-studio
+: 1738133772:0;yay -Ss llm studio
+: 1738133780:0;yay -S lmstudio
+: 1738136499:0;cd lmstudio-community
+: 1738136503:0;rm DeepSeek-R1-Distill-Qwen-14B-GGUF
+: 1738137111:0;chmod +x Bearly-3.0.0.AppImage
+: 1738137223:0;./Bearly-3.0.0.AppImage
+: 1738160063:0;nvim lua/modules/lang/lsp/ui.lua
+: 1738162280:0;nvim 
+: 1738162288:0;nvim test.fasm
+: 1738162313:0;yay -Ss asm lsp
+: 1738162320:0;yay -S asm-lsp
+: 1738162395:0;yay -Ss asm language
+: 1738162400:0;yay -Ss asm language server
+: 1738162424:0;cargo install asm-lsp
+: 1738162500:0;asm-lsp
+: 1738162521:0;cargo install --path asm-lsp
+: 1738162532:0;cargo run asm-lsp
+: 1738162601:0;.cargo/bin/asm-lsp
+: 1738163164:0;cargo uninstall asm-lsp
+: 1738163666:0;nvim test.asm
+: 1738163727:0;rm test.asm
+: 1738266536:0;nitch
+: 1738267555:0;1 + 1
+: 1738267562:0;echo $(1+1)
+: 1738267570:0;python
+: 1738268257:0;ssh
+: 1738268281:0;ssh-keygen
+: 1738268334:0;cat .ssh/hypervps.pub
+: 1738268557:0;bat .ssh/hypervps.pub
+: 1738270032:0;ssh timcates.dev:80
+: 1738270044:0;ssh timcates.dev
+: 1738270064:0;ssh timcates.dev -i ~/.ssh/hypervps
+: 1738270084:0;ssh root@timcates.dev -i ~/.ssh/hypervps
+: 1738291686:0;yay -Ss nix language
+: 1738311677:0;mkdir test
+: 1738311688:0;cd test/
+: 1738818090:0;:qa
+: 1738311735:0;z
+: 1738311764:0;/bin/cd 
+: 1738311804:0;antidote load .config/zsh/plugins.txt
+: 1738311811:0;nvim .config/zsh/plugins.
+: 1738311819:0;nvim .config/zsh/plugins.txt
+: 1738311860:0;yay -S zoxide
+: 1738311952:0;yay -Ss zoxide
+: 1738311961:0;yay -S zoxide-git
+: 1738312009:0;zoxide
+: 1738312016:0;zoxide -h
+: 1738818090:0;z 
+: 1738312273:0;nvim test.lua
+: 1738312690:0;test.js
+: 1738315582:0;yay -Ss deadnix
+: 1738317731:0;yay -Ss standard
+: 1738317737:0;yay -Ss standardjs
+: 1738317748:0;yay -S standard ts-standard
+: 1738475024:0;cd lang
+: 1738475026:0;cd lsp
+: 1738475029:0;nvim completions.lua
+: 1738476183:0;ls .config
+: 1738476220:0;nvim lua/modules/lang/lsp/lsp-configs.lua
+: 1738476433:0;nvim lua/modules/lang/lsp/lsp.lua
+: 1738476717:0;ls --tree
+: 1738476951:0;yazi
+: 1738482060:0;ls -tree
+: 1738482065:0;ls -t
+: 1738482067:0;ls -T
+: 1738482330:0;nvim lua/plugins/lsp/lsp.lua
+: 1738483189:0;nvim test.js
+: 1738514291:0;cd Do
+: 1738514295:0;cd ~/Documents
+: 1738514307:0;touch .project
+: 1738602778:0;nvim who.md
+: 1738607123:0;yay -S vintage-story
+: 1738607128:0;yay -Ss vintage
+: 1738607145:0;yay -Ss vintagestory
+: 1738607156:0;yay -S vintagestory
+: 1738607177:0;ssh vps
+: 1738608998:0;cat /etc/pam.d/sudo
+: 1738609030:0;getent group wheel
+: 1738609524:0;ssh VPS
+: 1738612602:0;kill vintage-story
+: 1738612638:0;kill 1143158
+: 1738612699:0;killall webcord
+: 1738612799:0;killall vivaldi
+: 1738612811:0;killall vivaldi-bin
+: 1738631593:0;killall electron
+: 1738817562:0;nvim --c
+: 1738817564:0;nvim -h
+: 1738817593:0;nvim -u
+: 1738817811:0;nivm
+: 1738817823:0;nvim -u doesntexist.lua
+: 1738817886:0;nvim --noplugin
+: 1738817947:0;chmod +x tst.sh
+: 1738818481:0;nvim tst.sh
+: 1738818495:0;time nvim -c q
+: 1738818506:0;time nvim --noplugin -c q
+: 1738818520:0;tst.sh
+: 1738818525:0;./tst.sh
+: 1738818676:0;nvim --startuptime startuptime.log .
+: 1738818683:0;nvim startuptime.log
+: 1738818797:0;nvim --startuptime startuptime.log -c q
+: 1738818864:0;rm *.log
+: 1738818941:0;nvim --startuptime startup.log -c q
+: 1738818944:0;nvim startup.log
+: 1738819252:0;yay -S imagemagick
+: 1738819772:0;cd Pictures
+: 1738859577:0;nvim mkdown tst.md
+: 1738859611:0;nvim tst.md
+: 1738860263:0;rm 2025-02-06_hate.md
+: 1738906248:0;rm startup.log test.js test.md tst.sh
+: 1738906255:0;cd test
+: 1738906259:0;rm test/
+: 1738944465:0;hyprshot -m region
+: 1738944589:0;cd hypr
+: 1739028619:0;rm autoloot.zip
+: 1739031258:0;rm StructuresSpawnChances300%.zip
+: 1739031818:0;yay -Ss nvidia settings
+: 1739031875:0;nvidia-settings
+: 1739076235:0;ghostty .
+: 1739076245:0;ls -a
+: 1739076246:0;..
+: 1739076306:0;rm ACulinaryArtillery\ 1.2.0.zip configlib_1.4.4.zip FromGoldenCombs-1.20-v1.8.6.zip
+: 1739112549:0;rm combatoverhaul_0.1.24.zip
+: 1740179384:0;hyprpm
+: 1740179384:0;hyprpm update
+: 1740179384:0;killall Hyprland
+: 1740179384:0;killall hyprland
+: 1740179384:0;cp .zshrc .config/zsh/
+: 1739150788:0;downgrade glibc
+: 1739150905:0;cd Logs
+: 1739150916:0;nvim client-main.log
+: 1739150937:0;cd Archive
+: 1739151033:0;cd 2025-02-09_15_29_06
+: 1739151038:0;nvim server-main.log
+: 1739153304:0;yay -Ss gamemode
+: 1739153323:0;systemctl start gamemoded
+: 1739153327:0;gamemoded
+: 1739154483:0;where VintageStory
+: 1739154490:0;where vintagestory
+: 1739154495:0;cd /usr/bin/vintagestory
+: 1739154503:0;nvim vintagestory
+: 1739154537:0;cd /usr
+: 1739154551:0;nvim vintagestory.desktop
+: 1739154625:0;cd .local/
+: 1739154629:0;cd share/
+: 1739154647:0;cd .steam/steam/steamapps/compatdata
+: 1739154651:0;cd 2268152333
+: 1739154661:0;cd pfx/drive_c
+: 1739154682:0;cd users/steamuser/AppData/Roaming/Vintagestory
+: 1739154686:0;yay -S mono
+: 1739154705:0;mono Vintagestory.exe
+: 1739154731:0;mono vintagestory
+: 1739154876:0;mesa_glthread=true Vintagestory
+: 1739154883:0;mesa_glthread=true vintagestory
+: 1739155709:0;cp 'fuck me plz.vcdbs' 'fuck me plz2.vcdbs'
+: 1739156510:0;cp 'awesome village world.vcdbs' 'awesome village world2.vcdbs'
+: 1739172486:0;copy 'dark cave tales.vcdbs' 'dark cave tales2.vcdbs'
+: 1739172494:0;cp 'dark cave tales.vcdbs' 'dark cave tales2.vcdbs'
+: 1739173922:0;rm terraprety_6.0.1.zip
+: 1739173935:0;copy terraprety_6.0.1_multigen.zip
+: 1739202299:0;cd Maps
+: 1739216054:0;cd saves
+: 1739216070:0;cp 'dark cave tales.vcdbs' default.vcdbs
+: 1739216104:0;scp ./default.vcdbs vintagestory@dev:~/server/data/saves
+: 1739216517:0;scp ./* vintagestory@dev:~/server/data/Mods/
+: 1739440445:0;yay -Ss windows usb
+: 1739441583:0;yay -S windows2usb
+: 1739441615:0;windows2usb
+: 1739441703:0;7z x ~/Downloads/G-W11.24H2.P.U11.WPE64 -o ~/Downloads/ghost
+: 1739441717:0;7z x ~/Downloads/G-W11.24H2.P.U11.WPE64 -output ~/Downloads/ghost
+: 1739441729:0;cd Downloa
+: 1739441752:0;7z x G-W11.24H2.P.U11.WPE64
+: 1739441769:0;windows2usb /dev/sdf ~/Downloads/WIN11.PRO.24H2.U11.X64.\(WPE\).ISO
+: 1739518703:0;tldr 7z a
+: 1739518715:0;7z a
+: 1739518721:0;7z --help
+: 1739518785:0;7z -p 128729972panda -a hypervps hypervps.pub config
+: 1739518791:0;7z -p 128729972panda a hypervps hypervps.pub config
+: 1739518799:0;7z -p a hypervps hypervps.pub config
+: 1739518845:0;cp hypervps.7z ~/
+: 1739518852:0;7z x hypervps.7z
+: 1739518869:0;rm hypervps.pub config
+: 1739518882:0;rm hypervps.7z
+: 1739518898:0;7z -p a hypervps.pub hypervps config
+: 1739518940:0;7z -p a keys hypervps.pub hypervps config
+: 1740173750:0;ping https://google.com
+: 1740173754:0;ping https://www.google.com
+: 1740173850:0;yay -R lmstudio
+: 1740173855:0;yay -Syu
+: 1740177081:0;sudo thunar
+: 1740179384:0;thunar
+: 1740177117:0;ls /mnt
+: 1740177125:0;mkdir /mnt/storage
+: 1740177129:0;sudo mkdir /mnt/storage
+: 1740177143:0;mount /dev/sdb1 /mnt/storage
+: 1740177585:0;yay -Ss treesitter
+: 1740177595:0;yay -Ss tree-sitter
+: 1740177602:0;yay -Ss emacs
+: 1740177648:0;yay -R emacs
+: 1740177652:0;which emacs
+: 1740177654:0;where emacs
+: 1740177675:0;make uninstall emacs
+: 1740177688:0;make uninstall
+: 1740177693:0;sudo make uninstall
+: 1740177703:0;yay -S emacs-wayland 
+: 1740177719:0;yay -S emacs-wayland --force
+: 1740177787:0;yay -S emacs-wayland --overwrite
+: 1740177801:0;rm /usr/share/applications/emacs*
+: 1740177806:0;sudo rm /usr/share/applications/emacs*
+: 1740177823:0;sudo rm /usr/share/emacs
+: 1740177830:0;sudo rm /usr/share/emacs -r
+: 1740178752:0;nvim init.lua
+: 1740179038:0;ssh hyper@dev
+: 1740179103:0;cd .zshrc
+: 1740204536:0;command
+: 1740204539:0;tldr command
+: 1740204558:0;command -v screen
+: 1740204579:0;command -v screen >/dev/null 2>&1 || echo "fata"
+: 1740206310:0;yay -Ss execstack
+: 1740206322:0;tldr execstack
+: 1740208625:0;echo $HOME
+: 1740211656:0;cd Downloads
+: 1740211704:0;mv 'v1204 hc.zip.001' 'default.001'
+: 1740211714:0;mv 'v1204 hc.zip.002' default.002
+: 1740211721:0;unzip default
+: 1740211726:0;cd default
+: 1740211736:0;rm default
+: 1740211746:0;tldr 7z
+: 1740211780:0;7z x default.001 
+: 1740211817:0;mv 'v1204 hc.vcdbs' default.vcdbs
+: 1740211867:0;scp ./default.vcdbs vintagestory@dev:servers/sp/data/Saves/default.vcdbs
+: 1740213067:0;7z x Mods.zip.001
+: 1740214138:0;rm *
+: 1740214157:0;cp ~/Downloads/Mods/* .
+: 1740214286:0;sudo downgrade glibc
+: 1740214303:0;sudo downgrade glibc lib32-glibc
+: 1740215020:0;scp * vintagestory@dev:servers/sp/Mods/
+: 1740216057:0;yay -Ss flatpak
+: 1740216098:0;yay -S flatpak
+: 1740216317:0;gamemoded &
+: 1740216415:0;reboot
+: 1740316397:0;umount /boot
+: 1740316402:0;sudo umount /boot
+: 1740316449:0;mount UUID=9879-71CC /boot
+: 1740316454:0;sudo mount UUID=9879-71CC /boot
+: 1740316462:0;pacman -Syu
+: 1740316738:0;yay -S protontricks
+: 1740316858:0;tldr protontricks
+: 1740317177:0;cd drive_c
+: 1740317182:0;cd users
+: 1740317184:0;cd steamuser
+: 1740317188:0;cd AppData
+: 1740317190:0;cd Roaming
+: 1740318280:0;killall steam
+: 1740318284:0;steam
+: 1740318910:0;protontricks --gui
+: 1740319368:0;flatpak install flathub at.vintagestory.VintageStory
+: 1740319558:0;flatpak
+: 1740319567:0;tldr flatpak
+: 1740319575:0;flatpak list --app
+: 1740319583:0;flatpak run Vintage Story
+: 1740319594:0;flatpak run at.vintagestory.VintageStory
+: 1740319831:0;cd .config/VintagestoryData
+: 1740319833:0;cd Mods
+: 1740319867:0;yay -R vintagestory
+: 1740376750:0;nvim project.lua
+: 1740376804:0;cd oldnvim
+: 1740376807:0;la
+: 1740376846:0;nvim filemanager.lua
+: 1740377368:0;yay -R webcord
+: 1740377379:0;yay -Ss webcord
+: 1740377390:0;yay -R webcord-vencord-git
+: 1740377395:0;yay -Ss discord
+: 1740378627:0;nvim yazi.lua
+: 1740414954:0;emacs -new
+: 1740414959:0;emacs -nw
+: 1740470594:0;nvim test.md
+: 1740472539:0;tldr tar
+: 1740729069:0;mkdir vaults
+: 1740729071:0;cd vaults
+: 1740729476:0;rm test.org
+: 1740729585:0;nvim 20250228005810-rust.org
+: 1740768314:0;nvim lisp/keymaps/normal.el
+: 1740796638:0;yay -S latex
+: 1740796643:0;yay -Ss latex
+: 1740796654:0;yay -Ss tex
+: 1740796739:0;yay -S texlive-full
+: 1740797428:0;tldr yay
+: 1740797435:0;yay -Yc
+: 1740799483:0;cd lua
+: 1740799488:0;cd plugins
+: 1740799500:0;nvim editor/markdown.lua
+: 1741031110:0;emacs .config/emacs/lisp/modules/tools/org.el
+: 1741039963:0;mkdir ~/Org/assets/images
+: 1741039967:0;mkdir ~/Org/assets/images -p
+: 1741199250:0;yay -S direnv
+: 1741201852:0;eza
+: 1741201983:0;gh
+: 1741201994:0;gh gist list
+: 1741202002:0;gh gist
+: 1741202005:0;gh gist delete
+: 1741202061:0;clearsdfasdfas
+: 1741202096:0;gh list
+: 1741202950:0;yay -Ss
+: 1741203029:0;yay -Ss tets
+: 1741203053:0;yay -Ss waterfox
+: 1741203094:0;yay -S waterfox
+: 1741203254:0;yay -S waterfox-bin
+: 1741207850:0;sudo systemctl restart sshd
+: 1741208255:0;ssh root@62.72.5.31
+: 1741209014:0;ping timcates.dev
+: 1741209019:0;tldr ssh
+: 1741209364:0;nvim .ssh/known_hosts
+: 1741209541:0;mkdir server
+: 1741209560:0;scp -r dev:/mnt/sda3/home ./
+: 1741209578:0;cd home
+: 1741209606:0;cd arch
+: 1741209612:0;cd hyper
+: 1741209746:0;cd vintagestory
+: 1741210021:0;cd .cache
+: 1741218529:0;cd mods
+: 1741218558:0;cd ../.var
+: 1741218561:0;cd app
+: 1741218562:0;cd at.vintagestory.VintageStory
+: 1741218571:0;cd config
+: 1741218577:0;cd VintagestoryData
+: 1741218596:0;cd server
+: 1741218600:0;cd home/vintagestory
+: 1741218603:0;cd servers
+: 1741218605:0;cd fafserver
+: 1741218607:0;cd data
+: 1741218613:0;cd Saves
+: 1741218618:0;cp default.vcdbs
+: 1741218620:0;copy default.vcdbs
+: 1741218877:0;scp -r dev:/mnt/sda3/usr/local/bin/server ./server.sh
+: 1741233136:0;nvim ~/.ssh/known_hosts
+: 1741242055:0;pacman -S tailscale
+: 1741242078:0;yay -S tailscale
+: 1741242088:0;sudo systemctl enable --now tailscaled
+: 1741242095:0;sudo tailscale up
+: 1741242230:0;ping 100.86.237.127 -c 4
+: 1741243027:0;ssh 100.86.237.127
+: 1741243072:0;ssh test
+: 1741243189:0;ping server
+: 1741243202:0;ssh server
+: 1741243473:0;ping timcates.dev:22
+: 1741243479:0;ping https://timcates.dev:22
+: 1741243519:0;ping 62.72.5.31
+: 1741243548:0;ssh 62.72.5.31
+: 1741243621:0;nvim ~/.ssh/config
+: 1741244104:0;yay -S xorg-xauth
+: 1741244631:0;yay -S waypipe
+: 1741244987:0;lspci | grep -i 'vga\|3d\|2d'
+: 1741245228:0;nvim .ssh/config
+: 1741261149:0;gh repos list
+: 1741261159:0;gh repo clone dotfiles
+: 1741355490:0;gh repos
+: 1741355493:0;gh repo list
+: 1741356028:0;cd nvim
+: 1741356033:0;mkdir emacs
+: 1741356051:0;cd ~/.config/emacs
+: 1741356058:0;copy *
+: 1741356111:0;nvim ../../.gitignore
+: 1741356646:0;scp .zshrc dev:~/.zshrc
+: 1741356825:0;scp ./zsh/ dev:~/.config/zsh
+: 1741356837:0;scp ./zsh dev:~/.config/zsh
+: 1741356841:0;tldr scp
+: 1741356852:0;scp -r ./zsh dev:~/.config/zsh
+: 1741356940:0;cd .config/zsh
+: 1741359504:0;sshd ev
+: 1741359545:0;yay -Ss emacs-wayland
+: 1741359555:0;yay -S emacs-wayland
+: 1741359709:0;cd eln-cache
+: 1741359772:0;scp -r ./30.1-0884cf35 dev:~/.config/emacs/eln-cache/30.1-0884cf35/
+: 1741359864:0;cd 30.1-0884cf35
+: 1741621829:0;waypipe ssh dev emacs
+: 1741625298:0;waypipe ssh vintagestory@dev emacs
+: 1741626399:0;cd ~/.local
+: 1741626402:0;cd bin
+: 1741626429:0;~/.local/bin/connect-users.sh
+: 1741626504:0;cd /home
+: 1741626519:0;update-desktop-database ~/.local/share/applications
+: 1741626790:0;cd .ssh
+: 1741626810:0;rm hyper hyper.pub
+: 1741626819:0;mv hypervps hyper
+: 1741626826:0;mv hypervps.pub hyper.pub
+: 1741626831:0;nvim config
+: 1741626863:0;dev
+: 1741626893:0;ssh-copy-id -i ./hyper.pub dev
+: 1741626901:0;ssh-copy-id -i ./hyper.pub vintagestory
+: 1741626925:0;ssh-copy-id -i ./hyper.pub vintagestory@dev
+: 1741626932:0;ssh vintagestory@dev
+: 1741626939:0;ssh root@dev
+: 1741627041:0;EMACS_COMMAND='if ! emacsclient -e "(daemonp)" &>/dev/null; then emacs --daemon; fi && emacsclient -c'
+: 1741627073:0;connect-users.sh
+: 1741627307:0;emacsclient -c
+: 1741627336:0;emacsclient -a ""
+: 1741627416:0;cd .local/bin
+: 1741627418:0;nvim connect-users.sh
+: 1741627438:0;./connect-users.sh
+: 1741636783:0;cd ../../bin
+: 1741651713:0;bash
+: 1741653085:0;sls
+: 1741653085:0;s
+: 1741653085:0;slslslslsclear
+: 1741653085:0;sd
+: 1741653085:0;d
+: 1741652978:0;cd 
+: 1741652988:0;emacsclient .zshrc
+: 1741653050:0;zsh
+: 1741653180:0;ff 
+: 1741653181:0;ff
+: 1741653198:0;source .zshrc
+: 1741653314:0;nvim
+: 1741654064:0;emacsclient -a "" -c
+: 1741654114:0;cp .zshrc .config/zsh/.zshrc
+: 1741716023:0;cd emacs
+: 1741716025:0;ff init.el
+: 1741979254:0;ff README.md
+: 1742002999:0;ff repos/tokyo-dark.el/tokyo-dark-theme.el
+: 1742005913:0;\n
+: 1742103828:0;ff connect-users.sh
+: 1742221626:0;ff test.org
+: 1742222013:0;cd ui
+: 1742222026:0;cd core
+: 1742222044:0;ff autopair.lua
+: 1742222588:0;ff test.jd
+: 1742583550:0;cs repos
+: 1742584327:0;cd tokyo
+: 1742588024:0;ff tet
+: 1742589699:0;ff shell.nix
+: 1742589935:0;ff dotfiles
+: 1742589945:0;ff dotfiles/README.md
+: 1742591643:0;ff flake.
+: 1742591657:0;cd repos/dotfiles
+: 1742591782:0;cd test.js
+: 1742591786:0;ff test.
+: 1742592086:0;cd tokyo-dark.el
+: 1742592087:0;ff tokyo-dark-theme.el
+: 1742594603:0;cd .config/emacs/lisp/
+: 1742594611:0;emacs modeline.el
+: 1742594634:0;cd editor
+: 1742594667:0;nvim modeline.el
+: 1742665767:0;cd repo
+: 1742665814:0;cd .config/emacs
+: 1742665817:0;cd lisp
+: 1742665819:0;cd keymaps
+: 1742665822:0;ff normal.el
+: 1742666473:0;ff test.md
+: 1742673382:0;mkdir ainstall
+: 1742673394:0;ff README.org
+: 1742690164:0;git pull
+: 1742691504:0;pacman -Ss nix
+: 1742691510:0;yay -Ss nix
+: 1742691531:0;yay -S nix
+: 1742691594:0;sudo usermod -a -G nix-users Hyper
+: 1742691598:0;nix rpl
+: 1742691605:0;sudo nix repl
+: 1742691988:0;nix repl
+: 1742692004:0;sudo nix-channel update
+: 1742692013:0;sudo nix-channel --update
+: 1742692585:0;pacman -Qe > installed.md
+: 1742692596:0;ff installed.md
+: 1742702849:0;yay -Ss nil
+: 1742702859:0;yay -S nil-git
+: 1742703470:0;cd ainstall/n
+: 1742703592:0;sudo chmod 755 /nix/var/nix/profiles/per-user
+: 1742703668:0;\
+sudo mkdir -p /nix/var/nix/profiles/per-user\
+sudo chmod 755 /nix/var/nix/profiles/per-user\
+sudo chown root:root /nix/var/nix/profiles/per-user
+: 1742703726:0;nil flake.nix
+: 1742703762:0;nil diagnostics
+: 1742704046:0;nil
+: 1742704059:0;nil diagnostics flake.nix
+: 1742704063:0;nil --help
+: 1742704470:0;yay -Ss nixpkgs
+: 1742704479:0;yay -S nixpkgs-fmt
+: 1742704544:0;yay -S nixpkgs-fmt-git
+: 1742704590:0;nixpkgs-fmt
+: 1742704689:0;yay -R nix
+: 1742797869:0;ff flake.nix
+: 1742797956:0;tree
+: 1742797965:0;lst --level=4
+: 1742797970:0;lst --level=5
+: 1742800679:0;ff test.js
+: 1742800727:0;ls /etc
+: 1742800754:0;cd gh
+: 1742800757:0;nvim config.yml
+: 1742800766:0;nvim hosts.yml
+: 1742824247:0;yay -S nushell
+: 1742824257:0;nu
+: 1742824273:0;nvim .zshrc
+: 1742824805:0;ssh dev
+: 1742826743:0;cd .config/hypr
+: 1742826745:0;nvim hyprland.conf
+: 1742826817:0;where wpctl
+: 1742826825:0;yay -Ss wpctl
+: 1742827473:0;lazygit
+: 1742828832:0;cd ../ainstall
+: 1742828839:0;git init
+: 1742828852:0;git branch -M master
+: 1742833564:0;nvim test
+: 1742833623:0;cd /usr/bin
+: 1742833638:0;cd qemu-system-x86_64
+: 1742833720:0;sudo pacman -S edk2-ovmf
+: 1742833900:0;/bin
+: 1742833903:0;cd /bin
+: 1742833935:0;cd ed2k-link
+: 1742833941:0;cd /usr/share
+: 1742833953:0;cd edk2
+: 1742833960:0;cd x64
+: 1742836798:0;cd New\ Folder
+: 1742836803:0;zip *
+: 1742836812:0;tldr zip
+: 1742836835:0;tldr -r emacs.zip *
+: 1742836845:0;zip -r emacs.zip *
+: 1742839933:0;cd .local
+: 1742839935:0;cd share
+: 1742839938:0;cd applications
+: 1742839940:0;nvim emacs.desktop
+: 1742839956:0;cd ../
+: 1742839961:0;cd ../bin
+: 1742839964:0;nvim custom-emacs.sh
+: 1742841037:0;cd modules
+: 1742841041:0;lst
+: 1742841044:0;cd tools
+: 1742841046:0;nvim terminal.el
+: 1742841104:0;emacs
+: 1742880547:0;cd ainstall
+: 1742880554:0;nvim install.sh
+: 1742880742:0;btm
+: 1742997687:0;killall discord
+: 1742997697:0;yay -Sy
+: 1742997703:0;yay -S discord
+: 1743057395:0;cd .config
+: 1743057402:0;eza --help
+: 1743057429:0;eza --1
+: 1743057433:0;eza -1
+: 1743057477:0;eza -w 5
+: 1743057480:0;eza -w 1
+: 1743057514:0;clear & exa -w 100
+: 1743057516:0;eza -w 100
+: 1743057539:0;ff files
+: 1743087981:0;yay -Ss uf2
+: 1743088030:0;yay -Ss yubico
+: 1743088055:0;yay -S pam-u2f
+: 1743088120:0;lsa
+: 1743088125:0;nvim sudo
+: 1743088141:0;ff yubico
+: 1743088293:0;sudo pacman -S yubikey-personalization yubikey-manager pam-u2f libu2f-host
+: 1743088309:0;yay -Ss libu2
+: 1743088327:0;sudo pacman -S yubikey-personalization yubikey-manager pam-u2f libu2f-server
+: 1743088388:0;lsusb | grep -i yubi
+: 1743088410:0;mkdir .config/Yubico
+: 1743088414:0;cd .config/Yubico
+: 1743088424:0;mv Yubico yubi
+: 1743088426:0;cd yubi
+: 1743088452:0;pamu2fcfg ~/.config/yubi/u2f_keys
+: 1743088469:0;pamu2fcfg > ~/.config/yubi/u2f_keys
+: 1743088521:0;pamu2fcfg > .config/yubi/u2f_keys
+: 1743088709:0;ff u2f_keys
+: 1743088837:0;rm yubico
+: 1743088845:0;sudo rm yubico
+: 1743088853:0;ff system-auth
+: 1743089216:0;cccccbttluljfuhkugufcjjuutjgttghlltvhhiblvfk
+: 1743089235:0;cccccbttluljfnhfnlheefiufgbhuelreujnvjhgjflh
+: 1743089303:0;passwd
+: 1743089670:0;passwd hyper
+: 1743089587:0;su
+: 1743089614:0;sudo
+: 1743089670:0;sudo systemctl restart pamd
+: 1743089670:0;sudo systemctl restart systemd-logind
+: 1743089677:0;passwd Hyper
+: 1743089677:0;passwd -S Hyper
+: 1743089677:0;su Hyper
+: 1743089674:0;-l
+: 1743089677:0;logout
+: 1743089762:0;hyprland
+: 1743089827:0;ykman info
+: 1743089878:0;pamu2fcfg --nouser
+: 1743090230:0;sudo 
+: 1743090262:0;ls /usr/lib/security
+: 1743090377:0;nvim /etc/hostname
+: 1743090403:0;pamu2fcfg -o pam://hostname -i pam://hostname -n >> ~/.config/yubi/u2f_keys
+: 1743090421:0;nvim .config/yubi/u2f_keys
+: 1743090487:0;sudo rm .config/yubi/u2f_keys
+: 1743175360:0;faillock
+: 1743175360:0;tldr faillock
+: 1743175360:0;rm .config/yubi/u2f_keys 
+: 1743090610:0;pamu2fcfg -o pam://arch -i pam://arch -n >> ~/.config/yubi/u2f_keys
+: 1743091037:0;su root
+: 1743175360:0;cd /etc/pam.d
+: 1743175360:0;nvim system-auth 
+: 1743175360:0;faillock --user Hyper --reset
+: 1743091090:0;sudo ls
+: 1743091096:0;killall emacs
+: 1743136266:0;ssh terminal.shop
+: 1743172245:0;cd /mnt
+: 1743172251:0;lsblk
+: 1743172269:0;sudo mount /dev/sdb1 /mnt/storage
+: 1743172284:0;cd ..
+: 1743172290:0;sudo umount /mnt/storage
+: 1743172302:0;sudo mount /dev/sdc1 /mnt/storage
+: 1743172307:0;cd storage
+: 1743172339:0;thunar .
+: 1743173106:0;yay -S mpv
+: 1743173789:0;killall mpv
+: 1743173813:0;clear
+: 1743173814:0;cd
+: 1743175245:0;mkdir ndots
+: 1743175247:0;cd ndots
+: 1743175264:0;cd repos
+: 1743175267:0;cd dotfiles
+: 1743175285:0;copy etc gtk rofi
+: 1743175295:0;pasta
+: 1743175315:0;nvim etc
+: 1743175325:0;cd etc
+: 1743175326:0;ls
+: 1743175329:0;ff environment
+: 1743175360:0;exit
+: 1743175402:0;cd repos
+: 1743175409:0;ls
+: 1743175415:0;mkdir wallpapers
+: 1743175420:0;cd wallpapers
+: 1743175427:0;copy *
+: 1743175430:0;pasta
+: 1743175431:0;ls
+: 1743175479:0;cd ..
+: 1743175480:0;ls
+: 1743175487:0;cd ..
+: 1743175488:0;ls
+: 1743175490:0;cd ndots
+: 1743175494:0;ls
+: 1743175496:0;rm etc
+: 1743175497:0;ls
+: 1743175504:0;cd gtk
+: 1743175505:0;lsa
+: 1743175507:0;cd ..
+: 1743175508:0;ls
+: 1743175509:0;cd rofi
+: 1743175510:0;ls
+: 1743175512:0;cd ..
+: 1743175540:0;cd .config
+: 1743175549:0;cd discord
+: 1743175550:0;ls
+: 1743175557:0;nvim Preferences
+: 1743175590:0;nvim settings.json
+: 1743175760:0;ls
+: 1743175764:0;cd rofi
+: 1743175765:0;cd ..
+: 1743175766:0;ls
+: 1743175769:0;mkdir discord
+: 1743175775:0;cd discord
+: 1743175799:0;copy settings.json
+: 1743175803:0;pasta
+: 1743175804:0;ls
+: 1743175805:0;cd ..
+: 1743179492:0;ls
+: 1743179522:0;copy ghostty
+: 1743179525:0;pasta
+: 1743179526:0;ls
+: 1743179541:0;cd repos
+: 1743179541:0;ls
+: 1743179543:0;cd dotfiles
+: 1743179544:0;ls
+: 1743179546:0;cd dotfiles
+: 1743179547:0;ls
+: 1743179549:0;cd ..
+: 1743179550:0;ls
+: 1743179555:0;mkdir zsh
+: 1743179558:0;cd zsh
+: 1743179558:0;ls
+: 1743179566:0;cd .config
+: 1743179567:0;cd zsh
+: 1743179568:0;ls
+: 1743179570:0;copy *

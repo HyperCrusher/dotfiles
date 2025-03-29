@@ -1,0 +1,35 @@
+window-padding-balance = true
+window-decoration = false
+background-opacity = 0.85
+resize-overlay = never
+confirm-close-surface = false
+
+font-family = "JetBrainsMono Nerd Font"
+font-size = 13
+
+clipboard-read = allow
+clipboard-write = allow
+clipboard-trim-trailing-spaces = true
+clipboard-paste-protection = false
+copy-on-select = true
+
+selection-invert-fg-bg = true
+foreground = #A0A8CD
+background = #11121D
+
+palette = 0=#06080A 
+palette = 8=#06080A 
+palette = 1=#EE6D85 
+palette = 9=#EE6D85 
+palette = 2=#95C561
+palette = 10=#95C561
+palette = 3=#D7A65F
+palette = 11=#D7A65F
+palette = 4=#7199EE
+palette = 12=#7199EE
+palette = 5=#A485DD
+palette = 13=#A485DD
+palette = 6=#7dcfff
+palette = 14=#7dcfff
+palette = 7=#787c99
+palette = 15=#787c99
