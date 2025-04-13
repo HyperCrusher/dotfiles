@@ -7,20 +7,20 @@
     },
     "blocks": [
         {
-            "type": "text",
+            "type": "prompt",
             "alignment": "left",
             "segments": [
                 {
                     "properties": {
                         "cache_duration": "none"
                     },
-                    "template": "{{ if ne .HostName \"Hyper\" }}[{{ .HostName }}:{{ .UserName }}]{{ else }}[{{ .UserName }}]{{ end }}"
-                    "foreground": "blue",
+                    "template": "{{ if ne .HostName \"Hyper\" }}[{{ .HostName }}:{{ .UserName }}]{{ else }}[{{ .UserName }}]{{ end }} ",
+                    "foreground": "yellow",
                     "background": "transparent",
-                    "type": "path",
+                    "type": "text",
                     "style": "plain"
                 }
-            ],
+            ]
         },
         {
             "type": "prompt",
@@ -30,13 +30,13 @@
                     "properties": {
                         "cache_duration": "none"
                     },
-                    "template": "{{ if eq .PWD \"/\" }}/{{ else }}{{ if eq .PWD \"~\" }}~{{ else }}{{ if eq .Parent \"/\" }}/{{ .Folder }}{{ else }}{{base .Parent }}/{{ .Folder }}{{ end }}{{ end }}{{ end }}",
+                    "template": "{{ if eq .PWD \"/\" }}/{{ else }}{{ if eq .PWD \"~\" }}~{{ else }}{{ if eq .Parent \"/\" }}/{{ .Folder }}{{ else }}{{base .Parent }}/{{ .Folder }}{{ end }}{{ end }}{{ end }} ",
                     "foreground": "blue",
                     "background": "transparent",
                     "type": "path",
                     "style": "plain"
                 }
-            ],
+            ]
         },
         {
             "type": "prompt",
@@ -52,7 +52,7 @@
                     "type": "text",
                     "style": "plain"
                 }
-            ],
+            ]
         }
     ],
     "version": 3,
