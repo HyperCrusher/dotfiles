@@ -7,6 +7,22 @@
     },
     "blocks": [
         {
+            "type": "text",
+            "alignment": "left",
+            "segments": [
+                {
+                    "properties": {
+                        "cache_duration": "none"
+                    },
+                    "template": "{{ if ne .HostName \"Hyper\" }}[{{ .HostName }}:{{ .UserName }}]{{ else }}[{{ .UserName }}]{{ end }}"
+                    "foreground": "blue",
+                    "background": "transparent",
+                    "type": "path",
+                    "style": "plain"
+                }
+            ],
+        },
+        {
             "type": "prompt",
             "alignment": "left",
             "segments": [
@@ -21,7 +37,6 @@
                     "style": "plain"
                 }
             ],
-            "newline": true
         },
         {
             "type": "prompt",
@@ -38,7 +53,6 @@
                     "style": "plain"
                 }
             ],
-            "newline": true
         }
     ],
     "version": 3,
