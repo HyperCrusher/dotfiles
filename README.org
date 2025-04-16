@@ -1,31 +1,24 @@
-#+TITLE: My Dotfiles Configuration
 #+AUTHOR: Hyper
 
 * My Dotfiles
 
-** Approach and Philosophy
-
 Welcome to my personal dotfiles repository!
 
-While the core of my system configuration is declaratively managed using [[https://nixos.org/][NixOS]], this repository houses the configurations I tend to tweak and iterate on more frequently. Maintaining these dotfiles separately allows for rapid experimentation and on-the-fly adjustments without the need for a full system rebuild via Nix.
+While the core of my system configuration is declaratively managed using [[https://nixos.org/][NixOS]], this repository houses the configurations I tend to tweak and iterate on more frequently.
 
-Previously, I explored managing these user-level configurations directly within my NixOS setup, including attempts at symlinking. However, these earlier approaches proved less reliable than desired for frequently modified files, sometimes leading to unexpected issues. I've since adopted a more robust separation of concerns:
-- *GNU Stow*: Used here to manage the symlinking of these user-level configuration files into the home directory. It excels at this task.
-- *NixOS*: Continues to manage the underlying system packages, services, stable configuration, and secrets securely.
+Previously, I explored managing these user-level configurations directly within my NixOS setup, including attempts at symlinking. However, these earlier approaches proved less reliable than desired for frequently modified files
 
-This separation provides a balance between NixOS's declarative power for the system foundation and the flexibility needed for evolving user-level preferences.
+** My Environmetn 
 
-** My Digital Toolbox
+Here are the tools that I think work best for a linux-based dev environment.
 
-Here's a glimpse into some of the key tools configured within this repository:
-
-- *Emacs*: My primary editor, valued especially for its unparalleled [[https://orgmode.org/][Org Mode]] integration and aesthetic flexibility. (A transition from prior Neovim enthusiasm.)
-- *Hyprland*: A dynamic tiling Wayland compositor offering extensive customization and smooth visuals, providing a BSPWM-like experience on Wayland.
-- *Zsh*: The Z shell serves as my preferred interactive POSIX-compliant shell, augmented with various plugins and customizations for enhanced productivity. (Though alternatives like [[https://www.nushell.sh/][Nushell]] remain intriguing.)
-- *Ghostty*: I use to switch from alacritty to kitty and back but ghostty has it all.
+- *Emacs*: My primary editor, terminal, file browser and more powered by vim-keybinds.
+- *Hyprland*: BSPWM was my home, but Hyprland gets pretty close.
+- *Zsh*: My preffered shell (Though [[https://www.nushell.sh/][Nushell]] would eventually be nice)
+- *Ghostty*: If I need an application that vshell can't run.
 
 ** Usage
 
 [TODO]
 
-Feel free to browse, borrow, and adapt any parts of this configuration that you find useful for your own setup!.
+ free to browse, borrow, and adapt any parts of this configuration that you find useful for your own setup!.
