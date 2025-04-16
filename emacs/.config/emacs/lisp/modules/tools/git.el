@@ -1,6 +1,7 @@
 (use-package magit
   :after evil-collection
   :config
+  (setopt magit-format-file-function #'magit-format-file-nerd-icons)  
   ;; Save window configuration before commit
   (add-hook 'server-switch-hook #'magit-save-window-configuration)
   ;; Restore window configuration after commit
@@ -12,10 +13,6 @@
         (delete-window (get-buffer-window buf)))))
   (advice-add 'magit-restore-window-configuration :after 
               #'magit-restore-window-configuration--prevent-vterm))
-
-(use-package magit-file-icons
-  :after magit
-  :init (magit-file-icons-mode 1))
 
 (use-package git-gutter
   :hook (prog-mode . git-gutter-mode)
