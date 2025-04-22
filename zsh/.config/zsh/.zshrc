@@ -72,9 +72,15 @@ touch() {
 
 unpack() {
   local archive="$1"
-  local file=$(basename "$archive")
-  command mkdir -p "${file%%.*}"
-  command 7z x "$archive" -o"${file%%.*}" -bso0
+  local file
+  file=$(basename "$archive")
+  local target_dir="${file%%.*}"
+  command mkdir -p "$target_dir"
+  command 7z t "$archive" -p"" > /dev/null 2>&1
+  if [[ $? -ne 0 ]]; then
+    echo "Password:"
+  fi
+  command 7z x "$archive" -o"$target_dir" -bso0
   eza
 }
 
