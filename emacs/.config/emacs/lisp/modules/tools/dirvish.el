@@ -15,7 +15,6 @@
   :config
   (dirvish-define-preview eza (file)
     "Use `eza' to generate directory preview."
-    :require ("eza")
     (when (file-directory-p file)
       `(shell . ("eza" "-a" "--color=always" "--icons" ,file))))
 

@@ -37,8 +37,7 @@
         (when (fboundp 'evil-insert-state)
           (evil-insert-state)
           ;; Clear the terminal before presenting
-          (vterm-send-string "clear")
-          (vterm-send-return))))
+          (vterm-clear))))
     buf))
 (if (daemonp)
     (progn
