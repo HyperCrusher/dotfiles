@@ -32,9 +32,9 @@ typeset -g ZSH_AUTOSUGGEST_STRATEGY=(completion)
 eval "$(oh-my-posh init zsh -c $ZDOTDIR/omp.json)"
 
 # File and directory operations
-alias ls="exa"
-alias lsa="exa -a"
-alias lst="exa --tree --level=2"
+alias ls="eza"
+alias lsa="eza -a"
+alias lst="eza --tree --level=2"
 alias grep="grep --color=auto"
 alias chown="chown --preserve-root"
 alias chmod="chmod --preserve-root"
@@ -53,24 +53,21 @@ alias lsblk="lsblk --output name,label,size,rota,mountpoints,fstype"
 # Cargo
 export PATH="$HOME/.cargo/bin:$PATH"
 
-_post_command(){
-  clear
-}
-
 function cd(){
-  z "$@" && _post_command
+  z "$@" && eza
 }
 clear(){
-  command clear && exa
+  command clear && eza
 }
 rm() {
-  command rm -r "$@" && _post_command;
+  command rm -r "$@" && eza;
 }
-mkdi() {
-  command mkdir -pv "$@" && _post_command;
+mkdir() {
+  command mkdir -pv "$@" && eza;
 }
+
 touch() {
-  command touch "$@" && _post_command;
+  command touch "$@" && eza;
 }
 unzip() {
   local filename=$(basename "$1" .zip)
@@ -112,5 +109,4 @@ ff() {
     vterm_cmd find-file "$(realpath "${@:-.}")"
 }
 
-sleep 0.01
-exa
+eza
