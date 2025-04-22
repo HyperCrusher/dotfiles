@@ -69,18 +69,32 @@ mkdir() {
 touch() {
   command touch "$@" && eza;
 }
-unzip() {
-  local filename=$(basename "$1" .zip)
-  mkdir -p "$filename"
-  command unzip "$1" -d "$filename"
-  _post_command
+
+unpack() {
+  local archive="$1"
+  local file=$(basename "$archive")
+  command mkdir -p "${file%%.*}"
+  command 7z x "$archive" -o"${file%%.*}" -bso0
+  eza
 }
 
-unrar() {
-  local filename=$(basename "$1" .rar)
-  mkdir -p "$filename"
-  command unrar x "$1" "$filename"
-  _post_command
+pack() {
+  local format="$1"
+  local output="$2"
+
+  case "$format" in
+    zip)
+      command 7z a "${output}.zip" "$@[3,-1]"
+      ;;
+    tar)
+      command 7z a -m0=zstd -mx=9 "${output}.tar.zst" "$@[3,-1]"
+      ;;
+    rar)
+      command rar a -m3 -idq "${output}.rar" "$@[3,-1]"
+      ;;
+    *)
+  esac
+  eza
 }
 
 vterm_printf() {
