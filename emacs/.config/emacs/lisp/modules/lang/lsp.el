@@ -56,7 +56,7 @@
   :config
   (with-eval-after-load 'eglot
     (dolist (mode '((nix-mode . ("nil" :initializationOptions
-                                 (:formatting (:command [ "nixpkgs-fmt" ]))))))
+                                 (:formatting (:command [ "nixfmt" ]))))))
       (add-to-list 'eglot-server-programs mode)))
   (setq eglot-sync-connect nil
         eglot-autoshutdown t

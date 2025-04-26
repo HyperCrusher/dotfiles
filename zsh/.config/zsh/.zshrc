@@ -42,6 +42,11 @@ alias chgrp="chgrp --preserve-root"
 alias ..="cd ../"
 alias .="cd ~"
 
+# Nixos
+alias update="cd ~/repos/nixos && nix flake update"
+alias rebuild="update && sudo nixos-rebuild boot --flake ~/repos/nixos#home-desktop"
+alias rebuild-now="update && sudo nixos-rebuild boot --switch ~/repos/nixos#home-desktop"
+
 # Nvim
 alias vi="nvim"
 alias vim="nvim"
