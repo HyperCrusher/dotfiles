@@ -1,3 +1,5 @@
 .direnv
 dotfiles/emacs/eln-cache/
 dotfiles/emacs/tldr/
+/emacs/.config/emacs/eln-cache/
+/emacs/.config/emacs/tree-sitter/
