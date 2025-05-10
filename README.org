@@ -8,7 +8,7 @@ While the core of my system configuration is declaratively managed using [[https
 
 Previously, I explored managing these user-level configurations directly within my NixOS setup, including attempts at symlinking. However, these earlier approaches proved less reliable than desired for frequently modified files
 
-** My Environmetn 
+** My Environment
 
 Here are the tools that I think work best for a linux-based dev environment.
 
