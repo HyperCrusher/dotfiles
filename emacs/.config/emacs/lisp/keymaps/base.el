@@ -12,10 +12,10 @@
 
 (general-def
   [escape] (lambda ()
-            (interactive)
-            (cond ((minibuffer-window-active-p (minibuffer-window))
-                   (abort-recursive-edit))
-                  (t (keyboard-quit)))))
+             (interactive)
+             (cond ((minibuffer-window-active-p (minibuffer-window))
+                    (abort-recursive-edit))
+                   (t (keyboard-quit)))))
 
 (general-define-key
  :states '(normal visual)

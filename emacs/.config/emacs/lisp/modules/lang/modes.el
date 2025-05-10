@@ -19,8 +19,11 @@
 
 (use-package auto-rename-tag)
 
-(use-package web-mode
-  :after smartparens
-  :hook (mhtml-mode . web-mode))
+(use-package jtsx
+  :mode (("\\.jsx?\\'" . jtsx-jsx-mode)
+         ("\\.tsx\\'" . jtsx-tsx-mode)
+         ("\\.ts\\'" . jtsx-typescript-mode))
+  :commands jtsx-install-treesit-language)
 
-(add-to-list 'auto-mode-alist '("\\.mts\\'" . typescript-mode))
+(add-to-list 'auto-mode-alist '("\\.mts\\'" . jtsx-typescript-mode))
+(add-to-list 'auto-mode-alist '("\\.json\\'" . json-mode))

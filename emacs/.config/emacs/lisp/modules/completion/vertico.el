@@ -2,7 +2,11 @@
   :init
   (vertico-mode))
 
-(use-package consult)
+(use-package consult
+  :config
+  (setq xref-show-xrefs-function #'consult-xref
+        xref-show-definitions-function #'consult-xref))
+
 (use-package embark)
 (use-package marginalia
   :init

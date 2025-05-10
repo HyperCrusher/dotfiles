@@ -8,26 +8,27 @@
         (shell-command (concat "touch " name))
         (revert-buffer))))
 
-(defun dired-toggle-mark ()
-  "Toggle the current file's mark in dired.
+  (defun dired-toggle-mark ()
+    "Toggle the current file's mark in dired.
 If the file is marked, unmark it. If unmarked, mark it.
 Does not move point after toggling."
-  (interactive)
-  (let ((inhibit-read-only t)
-        (current-position (point)))
-    (if (dired-file-marker-p)
+    (interactive)
+    (let ((inhibit-read-only t)
+          (current-position (point)))
+      (if (dired-file-marker-p)
+          (progn
+            (dired-unmark 1)
+            (goto-char current-position))
         (progn
-          (dired-unmark 1)
-          (goto-char current-position))
-      (progn
-        (dired-mark 1)
-        (goto-char current-position)))))
+          (dired-mark 1)
+          (goto-char current-position)))))
 
-(defun dired-file-marker-p ()
-  "Return non-nil if the current line's file is marked."
-  (save-excursion
-    (beginning-of-line)
-    (not (looking-at-p " "))))
+  (defun dired-file-marker-p ()
+    "Return non-nil if the current line's file is marked."
+    (save-excursion
+      (beginning-of-line)
+      (not (looking-at-p " "))))
+
 
   (general-define-key
    :states 'normal
@@ -56,3 +57,24 @@ Does not move point after toggling."
    "N"       'evil-search-previous
    "q"       'dirvish-quit
    [tab]     'dirvish-subtree-toggle))
+
+(defun dired-check (orig &rest args)
+  (if (derived-mode-p 'dired-mode (current-buffer))
+      nil
+    (apply orig args)))
+
+(advice-add 'evil-set-jump :around #'dired-check)
+
+(defun trigger-jump (&rest args)
+  (evil-set-jump))
+
+(advice-add 'find-file :before #'trigger-jump)
+(advice-add 'switch-to-buffer :before #'trigger-jump)
+
+(defun silent-kill ()
+  (when (buffer-modified-p)
+    (let ((inhibit-message t))
+      (set-buffer-modified-p nil)))
+  t)
+
+(add-hook 'kill-buffer-query-functions #'silent-kill)

@@ -7,9 +7,9 @@
   :config
   (define-fringe-bitmap 'my-vertical-bar
     [255 255 255 255 255 255 255 255
-     255 255 255 255 255 255 255 255
-     255 255 255 255 255 255 255 255
-     255 255 255 255 255 255 255 255]
+         255 255 255 255 255 255 255 255
+         255 255 255 255 255 255 255 255
+         255 255 255 255 255 255 255 255]
     32 8 'center)
 
   (setq flycheck-indication-mode 'left-fringe)
@@ -62,8 +62,8 @@
         eglot-autoshutdown t
         eglot-send-changes-idle-time 0.5
         eglot-ignored-server-capabilities '(:documentHighlightProvider
-                                           :documentOnTypeFormattingProvider
-                                           :colorProvider)
+                                            :documentOnTypeFormattingProvider
+                                            :colorProvider)
         eglot-stay-out-of '(eldoc flymake)
         eglot-extend-to-xref nil)
 
@@ -76,15 +76,13 @@
                                        ))
 
   :hook ((bash-mode c-mode c++-mode cmake-mode css-mode dockerfile-mode
-          fasm-mode gdscript-mode glsl-mode go-mode haskell-mode
-          hyprlang-ts-mode java-mode js-mode js2-mode json-mode
-          kotlin-mode lua-mode markdown-mode nix-mode rust-mode
-          toml-mode typescript-mode web-mode yaml-mode zig-mode) . eglot-ensure)
+                    fasm-mode gdscript-mode glsl-mode go-mode haskell-mode
+                    hyprlang-ts-mode java-mode js-mode js2-mode jtsx-jsx-mode jtsx-tsx-mode 
+                    jtsx-typescript-mode kotlin-mode lua-mode markdown-mode json-mode nix-mode rust-mode
+                    toml-mode typescript-mode yaml-mode zig-mode) . eglot-ensure)
 
-        (eglot-managed-mode . (lambda ()
-                               (add-hook 'before-save-hook #'eglot-format-buffer nil t))))
+  (eglot-managed-mode . (lambda ()
+                          (add-hook 'before-save-hook (lambda () (ignore-errors (eglot-format)))))))
 
-(use-package apheleia
-  :config
-  (apheleia-global-mode +1))
+(use-package apheleia)
 

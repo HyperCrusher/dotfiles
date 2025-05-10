@@ -1,11 +1,12 @@
 ;; Core editor behavior
 (setq-default
-  indent-tabs-mode nil
-  cursor-in-non-selected-windows nil
-  truncate-lines t
-  tab-width 2
-  require-final-newline t
-  vc-follow-symlinks t)
+ indent-tabs-mode nil
+ cursor-in-non-selected-windows nil
+ truncate-lines t
+ tab-width 2
+ confirm-kill-processes nil
+ require-final-newline t
+ vc-follow-symlinks t)
 
 ;; Line numbers
 (setq display-line-numbers-type 'relative)

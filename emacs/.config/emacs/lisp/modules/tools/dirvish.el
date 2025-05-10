@@ -1,10 +1,13 @@
 (use-package dired-ranger)
 
 (require 'dired-x)
+
 (setq dired-omit-files (concat dired-omit-files "\\|^\\..+$")
       dired-listing-switches "-lAGh1v --group-directories-first"
       dired-recursive-deletes 'always
-      dired-deletion-confirmer (lambda (x) t))
+      dired-recursive-copies 'always
+      dired-deletion-confirmer (lambda (x) t)
+      dired-clean-confirm-killing-deleted-buffers nil)
 (add-hook 'dired-mode-hook #'dired-omit-mode)
 
 (use-package dirvish
