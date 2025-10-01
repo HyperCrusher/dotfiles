@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Emacs
+Comment=Connects to the running Emacs server or launches it and opens a frame
+Exec=emacsclient -c -a ""
+Icon=emacs
+Terminal=false
+Categories=Utility;Editor;Development;
+Keywords=emacs;editor;client;frame;
+StartupWMClass=Emacs
