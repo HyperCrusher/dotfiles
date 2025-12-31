@@ -9,4 +9,3 @@
 (global-ligature-mode)
 (global-evil-quickscope-mode)
 (global-centered-cursor-mode)
-(apheleia-global-mode +1)

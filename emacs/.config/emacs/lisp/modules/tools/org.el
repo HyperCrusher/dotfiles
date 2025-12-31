@@ -38,9 +38,6 @@
 (use-package ob-nix)
 (use-package ob-go)
 (use-package ob-rust)
-(use-package ob-kotlin)
-(use-package ob-zig
-  :straight (:host github :repo "jolby/ob-zig.el" :branch "main"))
 
 ;; Configure Babel languages
 (org-babel-do-load-languages
@@ -50,12 +47,7 @@
    (shell . t)
    (js . t)
    (C . t)
-   (java . t)
-   (haskell . t)
-   (lisp . t)
    (lua . t)
    (nix . t)
    (go . t)
-   (rust . t)
-   (kotlin . t)
-   (zig . t)))
+   (rust . t)))
