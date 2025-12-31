@@ -58,6 +58,11 @@
     (dolist (mode '((nix-mode . ("nil" :initializationOptions
                                  (:formatting (:command [ "nixfmt" ]))))))
       (add-to-list 'eglot-server-programs mode)))
+
+  (add-to-list 'eglot-server-programs
+               '((rust-ts-mode rust-mode) .
+                 ("rustup" "run" "stable" "rust-analyzer" :initializationOptions (:check (:command "clippy")))))
+
   (setq eglot-sync-connect nil
         eglot-autoshutdown t
         eglot-send-changes-idle-time 0.5
