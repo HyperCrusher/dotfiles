@@ -83,7 +83,9 @@
   :hook ((org-mode . org-modern-mode)
          (org-mode . org-modern-special-checkboxes))
   :config
-  (setq org-modern-hide-stars t
+  (setq org-modern-hide-stars nil
+        org-modern-star nil
+        org-modern-block-name nil
         org-modern-list '((?+ . "")
                           (?- . " ")
                           (?* . " "))
