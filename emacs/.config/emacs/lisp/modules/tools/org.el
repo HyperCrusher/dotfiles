@@ -26,6 +26,7 @@
 
 ;; Editing and workflow helpers TODO
 (use-package org-autolist
+  :straight (:host github :repo "ucizi-turintech/org-autolist" :branch "master")
   :hook (org-mode . org-autolist-mode))
 
 (use-package org-download
