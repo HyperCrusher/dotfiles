@@ -15,10 +15,7 @@ if [ ${#walls[@]} -eq 0 ]; then
     exit 1
 fi
 
-hyprctl hyprpaper unload all
-
 for M in $monitors; do
   rWall="${walls[$RANDOM % ${#walls[@]}]}"
-  hyprctl hyprpaper preload "$rWall"
   hyprctl hyprpaper wallpaper "$M,$rWall"
 done
