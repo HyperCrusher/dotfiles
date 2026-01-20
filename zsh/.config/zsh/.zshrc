@@ -135,3 +135,11 @@ ff() {
 }
 
 eza
+bindkey -M emacs '^[[A' history-substring-search-up
+bindkey -M viins '^[[A' history-substring-search-up
+bindkey -M vicmd '^[[A' history-substring-search-up
+
+bindkey -M emacs '^[[B' history-substring-search-down
+bindkey -M viins '^[[B' history-substring-search-down
+bindkey -M vicmd '^[[B' history-substring-search-down
+HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1

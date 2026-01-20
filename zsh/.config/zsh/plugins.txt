@@ -1,7 +1,7 @@
 zsh-users/zsh-autosuggestions kind:defer
-zsh-users/zsh-syntax-highlighting kind:defer
+zsh-users/zsh-syntax-highlighting
 clarketm/zsh-completions kind:defer
-zsh-users/zsh-history-substring-search kind:defer
+zsh-users/zsh-history-substring-search
 ChrisPenner/copy-pasta kind:defer
 mdumitru/fancy-ctrl-z kind:defer
 jeffreytse/zsh-vi-mode kind:defer
