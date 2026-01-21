@@ -1,3 +1,6 @@
+window-inherit-working-directory = false
+working-directory = home
+
 window-padding-balance = true
 window-decoration = false
 background-opacity = 0.85
