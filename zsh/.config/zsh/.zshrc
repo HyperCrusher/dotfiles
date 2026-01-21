@@ -55,9 +55,6 @@ alias e="emacsclient"
 # Enhanced lsblk
 alias lsblk="lsblk --output name,label,size,rota,mountpoints,fstype"
 
-# Cargo
-export PATH="$HOME/.cargo/bin:$PATH"
-
 function cd(){
   z "$@" && eza
 }
