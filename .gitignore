@@ -6,3 +6,4 @@ dotfiles/emacs/tldr/
 emacs/.config/emacs/.local/harpoon
 nvim/.config/nvim/lua/lazy-lock.json
 nvim/.config/nvim/lazy-lock.json
+emacs/.local/share/
