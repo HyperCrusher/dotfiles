@@ -26,7 +26,6 @@ setopt HIST_IGNORE_SPACE
 setopt HIST_SAVE_NO_DUPS
 setopt HIST_VERIFY
 
-
 typeset -g ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ad8ee6"
 typeset -g ZSH_AUTOSUGGEST_STRATEGY=(completion)
 eval "$(oh-my-posh init zsh -c $ZDOTDIR/omp.json)"
@@ -43,10 +42,11 @@ alias chown="chown --preserve-root"
 alias chmod="chmod --preserve-root"
 alias chgrp="chgrp --preserve-root"
 
-# Nixos
-alias update="cd ~/repos/nixos && nix flake update"
-alias rebuild="update && sudo nixos-rebuild boot --flake ~/repos/nixos#home-desktop"
-alias rebuild-now="update && sudo nixos-rebuild boot --switch ~/repos/nixos#home-desktop"
+# Package managment
+alias update="yay -Syu"
+alias search="yay -Ss"
+alias install="yay -S"
+alias remove="yay -Rs"
 
 # Nvim
 alias vi="nvim"
