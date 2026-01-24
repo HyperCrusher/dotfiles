@@ -8,10 +8,13 @@
         (shell-command (concat "touch " name))
         (revert-buffer))))
 
+  (defun shell-command-here ()
+    (interactive)
+    (let ((command (read-string "Run: ")))
+      (shell-command command)
+      (revert-buffer)))
+
   (defun dired-toggle-mark ()
-    "Toggle the current file's mark in dired.
-If the file is marked, unmark it. If unmarked, mark it.
-Does not move point after toggling."
     (interactive)
     (let ((inhibit-read-only t)
           (current-position (point)))
@@ -24,7 +27,6 @@ Does not move point after toggling."
           (goto-char current-position)))))
 
   (defun dired-file-marker-p ()
-    "Return non-nil if the current line's file is marked."
     (save-excursion
       (beginning-of-line)
       (not (looking-at-p " "))))
@@ -42,6 +44,7 @@ Does not move point after toggling."
    "v"       'dirvish-split-right
    "c"       'dired-do-chmod
    "s"       'dired-do-shell-command
+   "S"       'shell-command-here
    "SPC"     'dired-toggle-mark
    "U"       'dired-unmark-all-marks
    "y"       'dired-ranger-copy
