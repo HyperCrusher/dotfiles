@@ -17,6 +17,11 @@
 (use-package evil-numbers
   :after evil)
 
+(use-package evil-commentary
+  :init
+  (evil-commentary-mode)
+  :after evil)
+
 (use-package centered-cursor-mode
   :config
   (setq ccm-step-size 1
