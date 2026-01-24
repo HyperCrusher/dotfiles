@@ -31,16 +31,17 @@ typeset -g ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ad8ee6"
 typeset -g ZSH_AUTOSUGGEST_STRATEGY=(completion)
 eval "$(oh-my-posh init zsh -c $ZDOTDIR/omp.json)"
 
+# Parus is yay, yay is paru
+alias yay="paru"
+
 # File and directory operations
 alias ls="eza"
 alias lsa="eza -a"
 alias lst="eza --tree --level=2"
-alias grep="grep --color=auto"
+alias grep="rg"
 alias chown="chown --preserve-root"
 alias chmod="chmod --preserve-root"
 alias chgrp="chgrp --preserve-root"
-alias ..="cd ../"
-alias .="cd ~"
 
 # Nixos
 alias update="cd ~/repos/nixos && nix flake update"
