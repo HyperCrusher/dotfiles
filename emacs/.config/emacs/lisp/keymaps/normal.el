@@ -24,18 +24,14 @@
   "p"  'consult-projectile-switch-project
   "c"  'evil-window-delete
   "v"  'split-window-right
-  "f"  'consult-buffer
-  "h a" 'harpoon-add-file
-  "h c" 'harpoon-clear
-  "h h" 'harpoon-go-to-next)
+  "f"  'consult-buffer)
 
 ;; Number operations
 (general-define-key
  :states 'motion
  "C-x" 'evil-numbers/dec-at-pt
  "C-a" 'evil-numbers/inc-at-pt
- "g C-x" 'evil-numbers/dec-at-pt-incremental
- "g C-a" 'evil-numbers/inc-at-pt-incremental)
+ "g C-x" 'evil-numbers/dec-at-pt-incremental)
 
 ;; Paste screenshots/clipboard images
 (defun paste-clipboard (&optional use-default-filename)
