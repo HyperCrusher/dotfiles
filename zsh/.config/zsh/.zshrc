@@ -1,4 +1,5 @@
 export ZDOTDIR="$HOME/.config/zsh"
+export PATH="$HOME/.cargo/bin:$PATH"
 
 # Plugins
 if [[ ! -e $ZDOTDIR/.antidote ]]; then
