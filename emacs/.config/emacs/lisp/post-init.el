@@ -9,3 +9,4 @@
 (global-ligature-mode)
 (global-evil-quickscope-mode)
 (global-centered-cursor-mode)
+(global-git-gutter-mode)
