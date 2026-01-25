@@ -5,7 +5,8 @@
 (use-package consult
   :config
   (setq xref-show-xrefs-function #'consult-xref
-        xref-show-definitions-function #'consult-xref))
+        xref-show-definitions-function #'consult-xref
+        consult-ripgrep-args (concat consult-ripgrep-args " --hidden -g !.git")))
 
 (use-package embark)
 (use-package marginalia
