@@ -43,7 +43,9 @@
     (unless (treesit-language-available-p (car lang))
       (treesit-install-language-grammar (car lang)))))
 
-(define-derived-mode slint-ts-mode prog-mode "Slint"
+(use-package slint-mode
+  :straight (:host github :repo "nilclass/slint-mode"))
+(define-derived-mode slint-ts-mode slint-mode "Slint TS"
   :group 'slint
   (when (treesit-ready-p 'slint)
     (treesit-parser-create 'slint)
@@ -57,7 +59,8 @@
                    ((parent-is "callback") parent-bol 2)
                    ((parent-is "property") parent-bol 2)
                    (no-node parent-bol 2))))
-    (setq-local indent-line-function 'treesit-indent)))
+    (setq-local indent-line-function 'treesit-indent)
+    (treesit-major-mode-setup)))
 
 (mapc (lambda (pair)
         (add-to-list 'auto-mode-alist pair))
