@@ -31,11 +31,25 @@
       (beginning-of-line)
       (not (looking-at-p " "))))
 
+  (defun open-vterm ()
+    (interactive)
+    (require 'vterm)
+    (let ((target-dir (expand-file-name default-directory))
+          (vterm-buffer (get-buffer "*vterm*")))
+      (dirvish-quit)
+      (if (buffer-live-p vterm-buffer)
+          (progn
+            (switch-to-buffer vterm-buffer)
+            (vterm-send-string (concat "cd " (shell-quote-argument target-dir) "\n"))
+            (vterm-send-string "clear\n"))
+        (let ((default-directory target-dir))
+          (vterm)))))
 
   (general-define-key
    :states 'normal
    :keymaps 'dirvish-mode-map
    "h"       'dired-up-directory
+   "o"       'open-vterm
    "<return>" 'dired-find-file
    "l"       'dired-find-file
    "j"       'dired-next-line

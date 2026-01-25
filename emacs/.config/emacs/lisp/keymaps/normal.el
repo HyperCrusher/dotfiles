@@ -1,3 +1,12 @@
+(defun smart-dirvish ()
+  (interactive)
+  (if (eq major-mode 'vterm-mode)
+      (dirvish default-directory)
+    (dired-jump)
+    (dirvish-layout-switch)))
+
+
+
 (general-create-definer leader
   :prefix "SPC")
 
@@ -13,10 +22,7 @@
 
 (leader
   :keymaps 'normal
-  "SPC" (lambda ()
-          (interactive)
-          (dired-jump)
-          (dirvish-layout-switch))
+  "SPC" 'smart-dirvish
   "s"  'consult-ripgrep
   "g"  'magit
   "t"  'vterm-toggle
@@ -46,7 +52,7 @@
 
 ;; Custom shortcuts, some are vimlike due to my removal of the evil buffer
 (defun nvterm ()
-  "Start a new separate vterm buffer and display it in the current window"
+  "Start a new separate vterbuffer and display it in the current window"
   (interactive)
   (let ((buffer-name (generate-new-buffer-name "*vterm*")))
     (switch-to-buffer buffer-name)
