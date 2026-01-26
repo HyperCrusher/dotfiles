@@ -2,7 +2,7 @@
   :init
   (let ((key-path (expand-file-name "gemini-key.txt" user-emacs-directory)))
     (setq
-     gptel-model 'gemini-3-pro-latest
+     gptel-model 'gemini-pro-latest
      gptel-backend (gptel-make-gemini "Gemini"
                      :key (when (file-exists-p key-path)
                             (with-temp-buffer
@@ -10,10 +10,12 @@
                               (string-trim (buffer-string))))
                      :stream t))))
 (use-package gptel-commit
-  :ensure t
   :after (gptel magit)
   :custom
   (gptel-commit-stream nil)
+  (gptel-commit-model 'gemini-flash-latest)
+  (add-hook 'gptel-post-stream-hook 'gptel-auto-scroll)
+  (add-hook 'gptel-post-response-functions 'gptel-end-of-response)
   :init
   (setq gptel-commit-prompt
         "You are an expert at writing Git commits. Your job is to write a short clear commit message that summarizes the changes.
