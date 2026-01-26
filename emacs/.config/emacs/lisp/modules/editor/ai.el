@@ -1,0 +1,31 @@
+(use-package gptel
+  :init
+  (let ((key-path (expand-file-name "gemini-key.txt" user-emacs-directory)))
+    (setq
+     gptel-model 'gemini-3-pro-latest
+     gptel-backend (gptel-make-gemini "Gemini"
+                     :key (when (file-exists-p key-path)
+                            (with-temp-buffer
+                              (insert-file-contents key-path)
+                              (string-trim (buffer-string))))
+                     :stream t))))
+(use-package gptel-commit
+  :ensure t
+  :after (gptel magit)
+  :custom
+  (gptel-commit-stream nil)
+  :init
+  (setq gptel-commit-prompt
+        "You are an expert at writing Git commits. Your job is to write a short clear commit message that summarizes the changes.
+Don't repeat information from the subject line in the message body.
+Only return the commit message in your response. Do not include any additional meta-commentary about the task. Do not include the raw diff output in the commit message.
+
+Follow good Git style:
+
+- Separate the subject from the body with a blank line
+- Use Past tense to describe changes
+- Try to limit the subject line to 50 characters
+- Capitalize the subject line
+- Do not end the subject line with any punctuation
+- Wrap the body at 72 characters
+- Keep the body short and concise (omit it entirely if not useful)"))
