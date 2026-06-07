@@ -50,6 +50,7 @@ alias install="yay -S"
 alias remove="yay -Rs"
 
 # Nvim
+alias nvim="emacsclient"
 alias vi="nvim"
 alias vim="nvim"
 alias e="emacsclient"
@@ -107,6 +108,15 @@ pack() {
   esac
   eza
 }
+packmod() {
+    if [ -z "$1" ]; then
+        return 1
+    fi
+    if [ ! -d "$1" ]; then
+        return 1
+    fi
+    (cd "$1" && zip -r "../${1%/}.zip" .)
+}
 
 if [[ "$INSIDE_EMACS" == 'vterm' ]]; then
     vterm_printf() {
@@ -150,3 +160,20 @@ bindkey -M emacs '^[[B' history-substring-search-down
 bindkey -M viins '^[[B' history-substring-search-down
 bindkey -M vicmd '^[[B' history-substring-search-down
 HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
+
+# pnpm
+export PNPM_HOME="/home/hyper/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
+
+export VINTAGE_STORY=/opt/vintagestory
+
+export VINTAGE_STORY=/opt/vintagestory
+
+# bun completions
+[ -s "/home/hyper/.bun/_bun" ] && source "/home/hyper/.bun/_bun"
+
+TERM=xterm-256color
