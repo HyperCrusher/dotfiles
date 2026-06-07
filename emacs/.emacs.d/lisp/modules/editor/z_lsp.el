@@ -5,35 +5,6 @@
 (use-package yasnippet)
 (yas-global-mode 1)
 
-(use-package fasm-mode :mode ("\\.asm\\'" . fasm-mode))
-(use-package glsl-mode)
-(use-package haskell-mode)
-(use-package hyprlang-ts-mode)
-(use-package kotlin-mode)
-(use-package markdown-mode)
-(use-package rust-mode
-  :init
-  (setq rust-mode-treesitter-derive t))
-(use-package svelte-mode)
-(use-package wgsl-mode)
-(use-package yuck-mode)
-(use-package zig-mode)
-
-(use-package lsp-bridge
-  :straight '(lsp-bridge :type git :host github :repo "manateelazycat/lsp-bridge"
-                         :files (:defaults "*.el" "*.py" "acm" "core" "langserver" "multiserver" "resources")
-                         :build (:not compile))
-  :init
-  (global-lsp-bridge-mode)
-  :config
-  (setq lsp-bridge-complete-manually t
-        lsp-bridge-enable-hover-diagnostic t
-        lsp-bridge-signature-show-function 'lsp-bridge-signature-show-with-frame
-        lsp-bridge-signature-show-with-frame-position "point"
-        lsp-bridge-enable-document-highlight t
-        acm-enable-doc t
-        lsp-bridge-enable-inlay-hint nil))
-
 (use-package apheleia
   :init
   (apheleia-global-mode)

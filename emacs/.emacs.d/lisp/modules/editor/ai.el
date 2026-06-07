@@ -31,3 +31,12 @@ Follow good Git style:
 - Do not end the subject line with any punctuation
 - Wrap the body at 72 characters
 - Keep the body short and concise (omit it entirely if not useful)"))
+
+(defun gptel-complete-function ()
+  "Take the selected function signature and ask gptel to complete it in-place."
+  (interactive)
+  (if (use-region-p)
+      (let ((gptel-system-message "You are a professional systems programmer. Complete the provided function signature. Return ONLY the code for the function body and signature. No explanations, no markdown blocks, and no commentary."))
+        (gptel-rewrite (region-beginning) (region-end) 
+                       :directive "Complete the function using the provided signature."))
+    (message "Please highlight a function signature first.")))

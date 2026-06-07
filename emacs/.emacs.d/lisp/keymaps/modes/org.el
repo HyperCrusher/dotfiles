@@ -130,13 +130,13 @@
   (general-define-key
    :states 'normal
    :keymaps 'org-mode-map
-   "C-c" 'org-check
    "SPC h" 'org-toggle-heading))
 
 (general-define-key
  :states '(normal visual)
  :keymaps 'org-mode-map
  :prefix "SPC"
+ "u c" 'org-check
  "i q" 'hyper/insert-quote
  "i s" 'hyper/insert-src-block
  "i c" 'hyper/insert-comment

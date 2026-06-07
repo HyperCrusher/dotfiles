@@ -1,2 +1,7 @@
-.config/emacs/.cache/
-/emacs/.config/emacs/gemini-key.txt
+.emacs.d/.cache/
+.emacs.d/gemini-key.txt
+.emacs.d/eln-cache/
+.emacs.d/tree-sitter/
+.emacs.d/.local/
+.local/
+.emacs.d/tldr/
