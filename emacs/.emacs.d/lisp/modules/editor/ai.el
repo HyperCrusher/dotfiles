@@ -20,12 +20,6 @@
   (call-interactively #'gptel)
   (message "Chat started with DeepSeek Flash"))
 
-(defun gpt-chat-thinking ()
-  (interactive)
-  (setq-local gptel-model 'deepseek-reasoner)
-  (call-interactively #'gptel)
-  (message "Chat started with DeepSeek Reasoner"))
-
 (defun gpt-mode-flash ()
   (interactive)
   (setq-local gptel-model 'deepseek-chat)
