@@ -17,9 +17,12 @@
   :after evil)
 
 (use-package evil-commentary
-  :config
-  (evil-commentary-mode)
-  :after evil)
+  :after evil-collection
+  :init
+  (defun enable-evil-comments ()
+    (unless (minibufferp)
+      (evil-commentary-mode 1)))
+  :hook (after-change-major-mode . enable-evil-comments))
 
 (use-package centered-cursor-mode
   :config
