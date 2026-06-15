@@ -32,6 +32,18 @@
   "v"  'split-window-right
   "f"  'consult-buffer)
 
+;; Window resizing with Alt + movement keys
+(general-define-key
+ :states 'motion
+ "M-l" (lambda () (interactive) (enlarge-window-horizontally 5))
+ "M-h" (lambda () (interactive) (shrink-window-horizontally 5))
+ "M-k" (lambda () (interactive) (shrink-window 5))
+ "M-j" (lambda () (interactive) (enlarge-window 5))
+ "M-<up>" (lambda () (interactive) (shrink-window 5))
+ "M-<down>" (lambda () (interactive) (enlarge-window 5))
+ "M-<left>" (lambda () (interactive) (shrink-window-horizontally 5))
+ "M-<right>" (lambda () (interactive) (enlarge-window-horizontally 5)))
+
 ;; Number operations
 (general-define-key
  :states 'motion
