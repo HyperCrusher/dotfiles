@@ -10,9 +10,9 @@
 
 (defun smart-compile--get-key ()
   (expand-file-name
-   (or (when (fboundp 'project-current)
-         (when-let ((proj (project-current)))
-           (project-root proj)))
+   (if (and (fboundp 'project-current)
+            (when-let ((proj (project-current))))
+            (project-root proj))
        default-directory)))
 
 (defun smart-compile--save ()
@@ -22,10 +22,10 @@
   (interactive "P")
   (let* ((key (smart-compile--get-key))
          (existing (assoc key smart-compile-commands))
-         (command (unless arg (cdr existing))))
+         (command (if arg nil (cdr existing))))
     (unless command
       (setq command (read-from-minibuffer "Compile command: "
-                                          (or command compile-command "make -j")))
+                                          (or (cdr existing) compile-command "make -j")))
       (if existing
           (setcdr existing command)
         (push (cons key command) smart-compile-commands))

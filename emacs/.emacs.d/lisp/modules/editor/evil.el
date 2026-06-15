@@ -17,7 +17,7 @@
   :after evil)
 
 (use-package evil-commentary
-  :init
+  :config
   (evil-commentary-mode)
   :after evil)
 

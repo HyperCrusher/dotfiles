@@ -1,7 +1,3 @@
-(use-package envrc
-  :config
-  (envrc-global-mode))
-
 (use-package yasnippet)
 (yas-global-mode 1)
 

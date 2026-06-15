@@ -23,12 +23,12 @@
   (let ((extra-space 1)) ; Add extra buffer space to prevent cutoff
     (propertize " "
                 'display `((space :align-to (- (+ right right-fringe right-margin) 
-                                              ,(+ reserve extra-space)))))))
+                                               ,(+ reserve extra-space)))))))
 
 (defun ml-word-count ()
   "Count the number of words in the current buffer."
   (if (or (derived-mode-p 'org-mode)
-           (derived-mode-p 'markdown-mode))
+          (derived-mode-p 'markdown-mode))
       (let ((wc (count-words (point-min) (point-max))))
         (format "%d word%s" wc (if (= wc 1) "" "s")))
     ""))
@@ -87,27 +87,27 @@
 ;; Git indicator
 (defvar ml-git
   '(:eval (if vc-mode
-             (let* ((branch-name (replace-regexp-in-string
-                                  "^\\s-*\\(Git\\|SVN\\|HG\\):?-?"
-                                  ""
-                                  vc-mode)))
-               (propertize (format " %s " branch-name) 'face 'ml-git-face))
-           (propertize " NONE " 'face 'ml-git-none-face)))
+              (let* ((branch-name (replace-regexp-in-string
+                                   "^\\s-*\\(Git\\|SVN\\|HG\\):?-?"
+                                   ""
+                                   vc-mode)))
+                (propertize (format " %s " branch-name) 'face 'ml-git-face))
+            (propertize " NONE " 'face 'ml-git-none-face)))
   "Version control for the mode line.")
 
 ;; Buffer name
 (defvar ml-buffer
   '(:eval (propertize (format "  %s  " (buffer-name))
-                     'face (if (buffer-modified-p)
-                              'ml-buffer-modified-face
-                            'ml-buffer-face)))
+                      'face (if (buffer-modified-p)
+                                'ml-buffer-modified-face
+                              'ml-buffer-face)))
   "Buffer name with different faces for modified/unmodified states.")
 
 ;; Read-only indicator (separate from buffer name)
 (defvar ml-readonly
   '(:eval (if buffer-read-only
-             (propertize "[Read only]" 'face 'ml-readonly-face)
-           ""))
+              (propertize "[Read only]" 'face 'ml-readonly-face)
+            ""))
   "Read-only status indicator.")
 
 ;; Flycheck indicators
@@ -131,10 +131,10 @@
               ('error (setq error-count (1+ error-count)))
               ('warning (setq warning-count (1+ warning-count))))))
         (format "%s%s"
-               (propertize (format "%s %d%s" ml-element-spacing error-count ml-element-spacing)
-                           'face 'ml-flycheck-error-face)
-               (propertize (format " %d%s" warning-count ml-element-spacing)
-                           'face 'ml-flycheck-warning-face)))
+                (propertize (format "%s %d%s" ml-element-spacing error-count ml-element-spacing)
+                            'face 'ml-flycheck-error-face)
+                (propertize (format " %d%s" warning-count ml-element-spacing)
+                            'face 'ml-flycheck-warning-face)))
     ""))
 
 ;; Word count
@@ -284,7 +284,6 @@
 
 (defun update-mode-line ()
   "Force update of the mode line."
-  (ml-update-mode-lines)
-  (force-mode-line-update t))
+  (ml-update-mode-lines))
 
 (setq ml-update-timer (run-with-timer 0 60 'update-mode-line))

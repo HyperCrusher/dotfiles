@@ -5,7 +5,6 @@
       uniquify-after-kill-buffer-p t)
 
 ;; Buffer behavior
-(global-auto-revert-mode t)
 (setq global-auto-revert-non-file-buffers t
       auto-revert-verbose nil
       kill-buffer-query-functions nil)

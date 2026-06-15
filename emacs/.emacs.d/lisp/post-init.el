@@ -6,7 +6,7 @@
 ;; Initialize modes that need all packages loaded
 (evil-collection-init)
 (vertico-posframe-mode)
-(global-ligature-mode)
-(global-evil-quickscope-mode)
-(global-centered-cursor-mode)
-(global-git-gutter-mode)
+(global-ligature-mode 1)
+(global-evil-quickscope-mode 1)
+(global-centered-cursor-mode 1)
+(global-git-gutter-mode 1)

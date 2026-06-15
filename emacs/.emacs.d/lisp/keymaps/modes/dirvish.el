@@ -76,7 +76,7 @@
    [tab]     'dirvish-subtree-toggle))
 
 (defun dired-check (orig &rest args)
-  (if (derived-mode-p 'dired-mode (current-buffer))
+  (if (derived-mode-p 'dired-mode)
       nil
     (apply orig args)))
 

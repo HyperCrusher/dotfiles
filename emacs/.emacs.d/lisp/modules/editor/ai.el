@@ -2,7 +2,6 @@
   :init
   (let ((key-path (expand-file-name "deepseek-key.txt" user-emacs-directory)))
     (setq
-     ;; Default to DeepSeek Flash for general use
      gptel-model 'deepseek-chat
      gptel-backend (gptel-make-deepseek "DeepSeek"
                      :key (when (file-exists-p key-path)
@@ -10,43 +9,38 @@
                               (insert-file-contents key-path)
                               (string-trim (buffer-string))))
                      :stream t
-                     :models '("deepseek-chat" "deepseek-reasoner")))))
+                     :models '("deepseek-chat" "deepseek-reasoner"))))
+  :config
+  (setq gptel-hide-reasoning t)
+  (add-hook 'gptel-post-response-functions #'gptel-end-of-response))
 
-;; Interactive chat commands
 (defun gpt-chat ()
-  "Start a chat with DeepSeek Flash (non-thinking mode)."
   (interactive)
   (setq-local gptel-model 'deepseek-chat)
   (call-interactively #'gptel)
-  (message "Chat started with DeepSeek Flash (non-thinking mode)"))
+  (message "Chat started with DeepSeek Flash"))
 
 (defun gpt-chat-thinking ()
-  "Start a chat with DeepSeek Reasoner (thinking mode)."
   (interactive)
   (setq-local gptel-model 'deepseek-reasoner)
   (call-interactively #'gptel)
-  (message "Chat started with DeepSeek Reasoner (thinking mode)"))
+  (message "Chat started with DeepSeek Reasoner"))
 
-;; Mode switching for existing conversations
 (defun gpt-mode-flash ()
-  "Switch current buffer to DeepSeek Flash (non-thinking) mode."
   (interactive)
   (setq-local gptel-model 'deepseek-chat)
-  (message "Switched to DeepSeek Flash (non-thinking mode) for this buffer"))
+  (message "Switched to DeepSeek Flash"))
 
 (defun gpt-mode-thinking ()
-  "Switch current buffer to DeepSeek Reasoner (thinking) mode."
   (interactive)
   (setq-local gptel-model 'deepseek-reasoner)
-  (message "Switched to DeepSeek Reasoner (thinking mode) for this buffer"))
+  (message "Switched to DeepSeek Reasoner"))
 
 (use-package gptel-commit
   :after (gptel magit)
-  :custom
-  (gptel-commit-stream nil)
-  (gptel-commit-model 'deepseek-chat)  ;; Non-thinking for commits - now a symbol
-  (add-hook 'gptel-post-stream-hook 'gptel-auto-scroll)
-  (add-hook 'gptel-post-response-functions 'gptel-end-of-response)
+  :config
+  (setq gptel-commit-stream nil
+        gptel-commit-model 'deepseek-chat)
   :init
   (setq gptel-commit-prompt
         "Generate a Git commit message following conventional style rules.
@@ -86,10 +80,9 @@ DO NOT:
 - Write multi-paragraph prose"))
 
 (defun gptel-complete-function ()
-  "Take the selected function signature and ask gptel to complete it in-place."
   (interactive)
   (if (use-region-p)
       (let ((gptel-system-message "You are a professional systems programmer. Complete the provided function signature. Return ONLY the code for the function body and signature. No explanations, no markdown blocks, and no commentary."))
         (gptel-rewrite (region-beginning) (region-end) 
-                       :directive "Complete the function using the provided signature."))
-    (message "Please highlight a function signature first.")))
+                       :directive "Complete the function using the provided signature"))
+    (user-error "Please highlight a function signature first")))
