@@ -17,18 +17,19 @@
 (defun gpt-chat ()
   (interactive)
   (setq-local gptel-model 'deepseek-chat)
-  (call-interactively #'gptel)
-  (message "Chat started with DeepSeek Flash"))
+  (call-interactively #'gptel))
 
 (defun gpt-mode-flash ()
   (interactive)
-  (setq-local gptel-model 'deepseek-chat)
-  (message "Switched to DeepSeek Flash"))
+  (setq-local gptel-model 'deepseek-chat))
 
 (defun gpt-mode-thinking ()
   (interactive)
-  (setq-local gptel-model 'deepseek-reasoner)
-  (message "Switched to DeepSeek Reasoner"))
+  (setq-local gptel-model 'deepseek-reasoner))
+
+(defun gpt-commit ()
+  (interactive)
+  (call-interactively #'gptel-commit))
 
 (use-package gptel-commit
   :after (gptel magit)
