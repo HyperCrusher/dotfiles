@@ -10,9 +10,8 @@
 
 (defun smart-compile--get-key ()
   (expand-file-name
-   (if (and (fboundp 'project-current)
-            (when-let ((proj (project-current))))
-            (project-root proj))
+   (or (when-let ((proj (project-current)))
+         (project-root proj))
        default-directory)))
 
 (defun smart-compile--save ()
