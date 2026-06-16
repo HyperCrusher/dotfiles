@@ -1,31 +1,40 @@
 (use-package gptel
   :init
-  (let ((key-path (expand-file-name "deepseek-key.txt" user-emacs-directory)))
+  (let* ((key-path (expand-file-name "deepseek-key.txt" user-emacs-directory))
+         (key (when (file-exists-p key-path)
+                (with-temp-buffer
+                  (insert-file-contents key-path)
+                  (string-trim (buffer-string))))))
     (setq
-     gptel-model 'deepseek-chat
-     gptel-backend (gptel-make-deepseek "DeepSeek"
-                     :key (when (file-exists-p key-path)
-                            (with-temp-buffer
-                              (insert-file-contents key-path)
-                              (string-trim (buffer-string))))
+     gptel-default-mode 'org-mode
+     gptel-model 'deepseek-v4-flash
+     gptel-backend (gptel-make-deepseek "DeepSeek Flash"
+                     :key key
                      :stream t
-                     :models '("deepseek-chat" "deepseek-reasoner"))))
+                     :models '("deepseek-v4-flash")
+                     :request-params '(:thinking (:type "disabled")))
+     gptel-pro-backend (gptel-make-deepseek "DeepSeek Pro"
+                         :key key
+                         :stream t
+                         :models '("deepseek-v4-pro")
+                         :request-params '(:thinking (:type "enabled")))))
   :config
   (setq gptel-hide-reasoning t)
   (add-hook 'gptel-post-response-functions #'gptel-end-of-response))
 
 (defun gpt-chat ()
   (interactive)
-  (setq-local gptel-model 'deepseek-chat)
+  (setq-local gptel-model 'deepseek-v4-flash)
   (call-interactively #'gptel))
 
-(defun gpt-mode-flash ()
+(defun gpt-mode ()
   (interactive)
-  (setq-local gptel-model 'deepseek-chat))
-
-(defun gpt-mode-thinking ()
-  (interactive)
-  (setq-local gptel-model 'deepseek-reasoner))
+  (if (eq gptel-model 'deepseek-v4-flash)
+      (progn
+        (setq-local gptel-model 'deepseek-v4-pro)
+        (setq-local gptel-backend gptel-pro-backend))
+    (setq-local gptel-model 'deepseek-v4-flash)
+    (setq-local gptel-backend gptel-backend)))
 
 (defun gpt-commit ()
   (interactive)
@@ -35,7 +44,7 @@
   :after (gptel magit)
   :config
   (setq gptel-commit-stream nil
-        gptel-commit-model 'deepseek-chat)
+        gptel-commit-model 'deepseek-v4-flash)
   :init
   (setq gptel-commit-prompt
         "Generate a Git commit message following conventional style rules.

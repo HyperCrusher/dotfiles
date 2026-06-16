@@ -132,6 +132,12 @@
    :keymaps 'org-mode-map
    "SPC h" 'org-toggle-heading))
 
+(with-eval-after-load 'gptel
+  (general-define-key
+   :keymaps 'gptel-mode-map
+   :states 'insert
+   (kbd "<return>") 'gptel-send))
+
 (general-define-key
  :states '(normal visual)
  :keymaps 'org-mode-map
