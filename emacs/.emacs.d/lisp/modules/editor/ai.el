@@ -36,6 +36,15 @@
     (setq-local gptel-model 'deepseek-v4-flash)
     (setq-local gptel-backend gptel-backend)))
 
+(defun gpt-add (file)
+  (interactive "fAdd file to gptel context: ")
+  (gptel-add-file file))
+
+(defun gpt-clear ()
+  (interactive)
+  (let ((gptel-context--confirm-remove nil))
+    (gptel-context-remove-all)))
+
 (defun gpt-commit ()
   (interactive)
   (call-interactively #'gptel-commit))
