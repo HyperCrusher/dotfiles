@@ -1,4 +1,6 @@
 (use-package dired-ranger)
+(use-package nerd-icons
+  :ensure t)
 
 (require 'dired-x)
 
