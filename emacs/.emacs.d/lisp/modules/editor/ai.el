@@ -21,6 +21,12 @@
      gptel-backend gptel-flash-backend))
   :config
   (setq gptel-hide-reasoning t)
+  (setq gptel-system-prompt "You are a large language model living in Emacs and a helpful assistant. Respond concisely.
+Follow these rules strictly:
+
+- Never include comments in any code you produce.
+- When answering questions, explain without code whenever possible. Provide code only if strictly necessary or explicitly requested.
+- When giving feedback, be direct and unbiased. Avoid empty praise or flattery. Offer honest, constructive, down-to-earth suggestions for improvement.")
   (add-hook 'gptel-post-response-functions #'gptel-end-of-response))
 
 (defun gpt-chat ()
@@ -93,6 +99,10 @@ DO NOT:
 - Repeat the subject in the body
 - Use markdown or code blocks
 - Write multi-paragraph prose"))
+
+(add-hook 'git-commit-mode-hook
+          (lambda ()
+            (evil-local-set-key 'normal (kbd "SPC g") 'gpt-commit)))
 
 (defun gptel-complete-function ()
   (interactive)
