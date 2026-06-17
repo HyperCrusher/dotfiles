@@ -108,7 +108,8 @@
 
 (mapc (lambda (pair)
         (add-to-list 'auto-mode-alist pair))
-      '(("\\.cs\\'" . csharp-ts-mode)
+      '(("\\.ai\\'" . org-mode)
+        ("\\.cs\\'" . csharp-ts-mode)
         ("\\.frag\\'" . glsl-ts-mode)
         ("\\.glsl\\'" . glsl-ts-mode)
         ("\\.hlsl\\'" . hlsl-ts-mode)
@@ -120,3 +121,10 @@
         ("\\.zig\\'" . zig-ts-mode)
         ("/\\.gnupg/.*\\.conf\\'" . gpg-config-ts-mode)
         ("/\\.ssh/config\\'" . ssh-config-ts-mode)))
+
+(add-hook 'org-mode-hook
+          (lambda ()
+            (when (and buffer-file-name
+                       (string-match-p "\\.ai\\'" buffer-file-name))
+              (gptel-mode 1)
+              (visual-line-mode 1))))
