@@ -37,3 +37,4 @@
 
 (general-define-key
  "<escape>" 'evil-exit-emacs-state)
+

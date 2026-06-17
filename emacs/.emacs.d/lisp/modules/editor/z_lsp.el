@@ -1,6 +1,23 @@
 (use-package yasnippet)
 (yas-global-mode 1)
 
+(use-package lsp-bridge
+  :straight '(lsp-bridge :type git :host github :repo "manateelazycat/lsp-bridge"
+                         :files (:defaults "*.el" "*.py" "acm" "core" "langserver" "multiserver" "resources")
+                         :build (:not compile))
+  :init
+  (global-lsp-bridge-mode)
+  :config
+  (setq lsp-bridge-complete-manually t)
+  (setq lsp-bridge-enable-diagnostics nil
+        lsp-bridge-enable-hover-diagnostic nil
+        lsp-bridge-enable-signature-help nil
+        lsp-bridge-enable-document-highlight nil
+        lsp-bridge-enable-inlay-hint nil
+        lsp-bridge-enable-code-action nil
+        lsp-bridge-enable-format nil
+        lsp-bridge-enable-hover t))
+
 (use-package apheleia
   :init
   (apheleia-global-mode)
