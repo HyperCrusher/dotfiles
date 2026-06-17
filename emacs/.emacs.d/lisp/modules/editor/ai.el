@@ -6,18 +6,19 @@
                   (insert-file-contents key-path)
                   (string-trim (buffer-string))))))
     (setq
-     gptel-default-mode 'org-mode
-     gptel-model 'deepseek-v4-flash
-     gptel-backend (gptel-make-deepseek "DeepSeek Flash"
-                     :key key
-                     :stream t
-                     :models '("deepseek-v4-flash")
-                     :request-params '(:thinking (:type "disabled")))
+     gptel-flash-backend (gptel-make-deepseek "DeepSeek Flash"
+                           :key key
+                           :stream t
+                           :models '("deepseek-v4-flash")
+                           :request-params '(:thinking (:type "disabled")))
      gptel-pro-backend (gptel-make-deepseek "DeepSeek Pro"
                          :key key
                          :stream t
                          :models '("deepseek-v4-pro")
-                         :request-params '(:thinking (:type "enabled")))))
+                         :request-params '(:thinking (:type "enabled")))
+     gptel-default-mode 'org-mode
+     gptel-model 'deepseek-v4-flash
+     gptel-backend gptel-flash-backend))
   :config
   (setq gptel-hide-reasoning t)
   (add-hook 'gptel-post-response-functions #'gptel-end-of-response))
@@ -25,6 +26,7 @@
 (defun gpt-chat ()
   (interactive)
   (setq-local gptel-model 'deepseek-v4-flash)
+  (setq-local gptel-backend gptel-flash-backend)
   (call-interactively #'gptel))
 
 (defun gpt-mode ()
@@ -34,7 +36,7 @@
         (setq-local gptel-model 'deepseek-v4-pro)
         (setq-local gptel-backend gptel-pro-backend))
     (setq-local gptel-model 'deepseek-v4-flash)
-    (setq-local gptel-backend gptel-backend)))
+    (setq-local gptel-backend gptel-flash-backend))) 
 
 (defun gpt-add (file)
   (interactive "fAdd file to gptel context: ")
@@ -96,6 +98,6 @@ DO NOT:
   (interactive)
   (if (use-region-p)
       (let ((gptel-system-message "You are a professional systems programmer. Complete the provided function signature. Return ONLY the code for the function body and signature. No explanations, no markdown blocks, and no commentary."))
-        (gptel-rewrite (region-beginning) (region-end) 
+        (gptel-rewrite (region-beginning) (region-end)
                        :directive "Complete the function using the provided signature"))
     (user-error "Please highlight a function signature first")))

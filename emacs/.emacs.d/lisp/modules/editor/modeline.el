@@ -40,6 +40,17 @@
         (am-pm (downcase (format-time-string "%p"))))
     (format "%d:%s %s" hour min am-pm)))
 
+(defface ml-gptel-face
+  '((t (:foreground "blue" :weight bold)))
+  "Face for gptel model display in mode line.")
+
+(defvar ml-gptel-model
+  '(:eval (when (and (bound-and-true-p gptel-mode)
+                     (bound-and-true-p gptel-model))
+            (propertize (format "  %s  " gptel-model)
+                        'face 'ml-gptel-face)))
+  "Mode-line element showing the current gptel model.")
+
 (defface ml-git-face
   '((t (:foreground "green" :weight normal)))
   "Face for Git branch indicator when a branch exists.")
@@ -176,6 +187,7 @@
 
 (defvar ml-standard-right
   (list ml-major-mode
+        ml-gptel-model
         " "
         ml-word-count
         ml-time)
