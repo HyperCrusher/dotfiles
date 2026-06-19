@@ -36,13 +36,15 @@
   (interactive "P")
   (let* ((root (scompile-root))
          (existing (unless arg (scompile-read-command root)))
-         (command (or existing
-                      (read-from-minibuffer
-                       "Compile command: "
-                       (or existing compile-command "make -j")))))
-    (unless (equal command existing)
-      (scompile-write-command root command))
-    (compile command)))
+         (raw-command (or existing
+                          (read-from-minibuffer
+                           "Compile command: "
+                           (or existing compile-command "make -j")))))
+    (unless (equal raw-command existing)
+      (scompile-write-command root raw-command))
+    (let ((default-directory root)
+          (full-command (format "cd %s && %s" (shell-quote-argument root) raw-command)))
+      (compile full-command))))
 
 (defun scompile-clear ()
   (interactive)
