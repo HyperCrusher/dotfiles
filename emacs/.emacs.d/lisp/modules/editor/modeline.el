@@ -98,13 +98,20 @@
 ;; Git indicator
 (defvar ml-git
   '(:eval (if vc-mode
-              (let* ((branch-name (replace-regexp-in-string
-                                   "^\\s-*\\(Git\\|SVN\\|HG\\):?-?"
-                                   ""
-                                   vc-mode)))
-                (propertize (format " %s " branch-name) 'face 'ml-git-face))
-            (propertize " NONE " 'face 'ml-git-none-face)))
-  "Version control for the mode line.")
+              (let* ((branch-name
+                      (replace-regexp-in-string
+                       "^\\s-*\\(Git\\|SVN\\|HG\\):?-?" ""
+                       vc-mode)))
+                (propertize (format " %s " branch-name)
+                            'face 'ml-git-face))
+            ;; No VCS – try to find a project name
+            (if-let ((proj-name
+                      (and (fboundp 'projectile-project-name)
+                           (projectile-project-name))))
+                (propertize (format " %s " proj-name)
+                            'face 'ml-git-face)
+              (propertize " NONE " 'face 'ml-git-none-face))))
+  "Show VCS branch or, if no VCS, project name in the mode line.")
 
 ;; Buffer name
 (defvar ml-buffer
