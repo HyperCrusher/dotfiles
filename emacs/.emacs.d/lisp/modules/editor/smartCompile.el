@@ -2,44 +2,62 @@
   "Smart compile with per-project command persistence."
   :group 'tools)
 
-(defcustom smart-compile-commands nil
-  "Alist mapping directory paths to compile commands."
-  :type '(alist :key-type directory :value-type string)
-  :risky t
-  :group 'smart-compile)
-
-(defun smart-compile--get-key ()
+(defun scompile-root ()
   (expand-file-name
-   (or (when-let ((proj (project-current)))
-         (project-root proj))
+   (or (and (fboundp 'projectile-project-root)
+            (projectile-project-root))
+       (and (fboundp 'project-current)
+            (when-let ((proj (project-current)))
+              (project-root proj)))
        default-directory)))
 
-(defun smart-compile--save ()
-  (customize-save-variable 'smart-compile-commands smart-compile-commands))
+(defun scompile-file (root)
+  (expand-file-name ".scompile" root))
 
-(defun smart-compile (arg)
+(defun scompile-read-command (root)
+  (let ((file (scompile-file root)))
+    (when (file-exists-p file)
+      (with-temp-buffer
+        (insert-file-contents file)
+        (let ((cmd (string-trim (buffer-string))))
+          (unless (string-empty-p cmd) cmd))))))
+
+(defun scompile-write-command (root command)
+  (let ((file (scompile-file root)))
+    (with-temp-file file
+      (insert command))))
+
+(defun scompile-delete-command (root)
+  (let ((file (scompile-file root)))
+    (when (file-exists-p file)
+      (delete-file file))))
+
+(defun scompile (arg)
   (interactive "P")
-  (let* ((key (smart-compile--get-key))
-         (existing (assoc key smart-compile-commands))
-         (command (if arg nil (cdr existing))))
-    (unless command
-      (setq command (read-from-minibuffer "Compile command: "
-                                          (or (cdr existing) compile-command "make -j")))
-      (if existing
-          (setcdr existing command)
-        (push (cons key command) smart-compile-commands))
-      (smart-compile--save))
+  (let* ((root (scompile-root))
+         (existing (unless arg (scompile-read-command root)))
+         (command (or existing
+                      (read-from-minibuffer
+                       "Compile command: "
+                       (or existing compile-command "make -j")))))
+    (unless (equal command existing)
+      (scompile-write-command root command))
     (compile command)))
 
-(defun smart-compile-clear ()
+(defun scompile-clear ()
   (interactive)
-  (let* ((key (smart-compile--get-key))
-         (existing (assoc key smart-compile-commands)))
-    (when existing
-      (setq smart-compile-commands (delete existing smart-compile-commands))
-      (smart-compile--save)
-      (message "Cleared compile command for %s" key))))
+  (let* ((root (scompile-root))
+         (file (scompile-file root)))
+    (if (file-exists-p file)
+        (progn
+          (delete-file file)
+          (message "Removed compile command from %s" root))
+      (message "No saved compile command in %s" root))))
 
-(defun smart-compile-edit ()
+(defun scompile-edit ()
   (interactive)
-  (customize-variable 'smart-compile-commands))
+  (let* ((root (scompile-root))
+         (file (scompile-file root)))
+    (unless (file-exists-p file)
+      (scompile-write-command root (or compile-command "make -j")))
+    (find-file file)))
