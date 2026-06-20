@@ -104,11 +104,10 @@
                        vc-mode)))
                 (propertize (format " %s " branch-name)
                             'face 'ml-git-face))
-            ;; No VCS – try to find a project name
-            (if-let ((proj-name
-                      (and (fboundp 'projectile-project-name)
-                           (projectile-project-name))))
-                (propertize (format " %s " proj-name)
+            (if-let ((proj-root
+                      (and (fboundp 'projectile-project-root)
+                           (projectile-project-root))))
+                (propertize (format " %s " (projectile-project-name proj-root))
                             'face 'ml-git-face)
               (propertize " NONE " 'face 'ml-git-none-face))))
   "Show VCS branch or, if no VCS, project name in the mode line.")
