@@ -20,7 +20,7 @@
      gptel-model 'deepseek-v4-flash
      gptel-backend gptel-flash-backend))
   :config
-  (setq gptel-hide-reasoning t)
+  (setq gptel-include-reasoning nil)
   (setq gptel-system-prompt "You are a large language model living in Emacs and a helpful assistant. Respond concisely.
 Follow these rules strictly:
 
