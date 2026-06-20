@@ -9,16 +9,15 @@
     ("?" "" org-checkbox-uncertain-face)))
 
 (defun org-modern-special-checkboxes ()
-  (let ((rules 
-         `(
-           ("^\\s-*\\([-+*][ \t]+\\)\\[[^]]*\\]" 
+  (let ((rules
+         `(("^\\s-*\\([-+*][ \t]+\\)\\[[^]]*\\]"
             (1 '(face nil display "") prepend)))))
     (dolist (item my/org-special-checkbox-alist)
       (let ((char (nth 0 item))
             (icon (nth 1 item))
             (face (nth 2 item)))
-        (push `(,(format "\\(\\[\\(%s\\)\\]\\)" (regexp-quote char))
-                (0 (progn (compose-region (match-beginning 0) (match-end 0) ,icon) ',face) append))
+        (push `(,(format "^\\s-*\\([-+*][ \t]+\\)\\(\\[\\(%s\\)\\]\\)" (regexp-quote char))
+                (2 (progn (compose-region (match-beginning 2) (match-end 2) ,icon) ',face) append))
               rules)))
     (font-lock-add-keywords nil (reverse rules) t)))
 
