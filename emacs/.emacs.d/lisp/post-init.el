@@ -8,5 +8,6 @@
 (vertico-posframe-mode)
 (global-ligature-mode 1)
 (global-evil-quickscope-mode 1)
+(global-evil-surround-mode 1)
 (global-centered-cursor-mode 1)
 (global-git-gutter-mode 1)
