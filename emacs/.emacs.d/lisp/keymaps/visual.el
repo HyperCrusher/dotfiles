@@ -19,8 +19,8 @@
  "<"        'evil-shift-left-visual
  "J"        'drag-stuff-down
  "K"        'drag-stuff-up
+ "s"        'evil-surround-region
  [tab]      'evil-shift-right-visual
  [S-tab]    'evil-shift-left-visual)
 
-;;; Clipboard isolation for delete and visual paste only
 (fset 'evil-visual-update-x-selection 'ignore)

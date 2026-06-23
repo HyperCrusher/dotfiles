@@ -12,6 +12,8 @@
 
 (general-define-key
  :states 'motion
+ "j" 'evil-next-visual-line
+ "k" 'evil-previous-visual-line
  "C-S" 'save-buffer
  "C-L" 'evil-window-right
  "C-h" 'evil-window-left
@@ -23,6 +25,8 @@
 (leader
   :keymaps 'normal
   "SPC" 'smart-dirvish
+  "h" 'evil-first-non-blank
+  "l" 'evil-last-non-blank
   "s"  'consult-ripgrep
   "g"  'magit
   "t"  'vterm-toggle
