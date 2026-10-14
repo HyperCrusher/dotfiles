@@ -1,40 +1,40 @@
-export ZDOTDIR="$HOME/.config/zsh"
+export zdotdir="$HOME/.config/zsh"
 export PATH="$HOME/.cargo/bin:$PATH"
 
-# Plugins
-if [[ ! -e $ZDOTDIR/.antidote ]]; then
-  git clone --depth=1 https://github.com/mattmc3/antidote.git $ZDOTDIR/.antidote
+# plugins
+if [[ ! -e "$zdotdir/.antidote" ]]; then
+  git clone --depth=1 https://github.com/mattmc3/antidote.git "$zdotdir/.antidote"
 fi
 
-source $ZDOTDIR/.antidote/antidote.zsh
-antidote load $ZDOTDIR/plugins.txt
+source "$zdotdir/.antidote/antidote.zsh"
+antidote load "$zdotdir/plugins.txt"
 
-# Zoxide
+# zoxide
 eval "$(zoxide init zsh)"
 
-# History
-export HISTFILE="$ZDOTDIR/history"
+# history
+export HISTFILE="$zdotdir/history"
 export HISTSIZE=50000
 export SAVEHIST=50000
 
-setopt EXTENDED_HISTORY
-setopt SHARE_HISTORY
-setopt HIST_EXPIRE_DUPS_FIRST
-setopt HIST_IGNORE_DUPS
-setopt HIST_IGNORE_ALL_DUPS
-setopt HIST_FIND_NO_DUPS
-setopt HIST_IGNORE_SPACE
-setopt HIST_SAVE_NO_DUPS
-setopt HIST_VERIFY
+setopt extended_history
+setopt share_history
+setopt hist_expire_dups_first
+setopt hist_ignore_dups
+setopt hist_ignore_all_dups
+setopt hist_find_no_dups
+setopt hist_ignore_space
+setopt hist_save_no_dups
+setopt hist_verify
 
 typeset -g ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=#ad8ee6"
 typeset -g ZSH_AUTOSUGGEST_STRATEGY=(completion)
-eval "$(oh-my-posh init zsh -c $ZDOTDIR/omp.json)"
+eval "$(oh-my-posh init zsh -c "$zdotdir/omp.json")"
 
-# Parus is yay, yay is paru
+# paru is yay, yay is paru
 alias yay="paru"
 
-# File and directory operations
+# file and directory operations
 alias ls="eza"
 alias lsa="eza -a"
 alias lst="eza --tree --level=2"
@@ -43,11 +43,11 @@ alias chown="chown --preserve-root"
 alias chmod="chmod --preserve-root"
 alias chgrp="chgrp --preserve-root"
 
-# Package managment
+# package management
 alias update="yay -Syu"
 alias search="yay -Ss"
 alias install="yay -S"
-alias remove="yay -Rs"
+alias remove="yay -Rns"
 
 # Nvim
 alias nvim="emacsclient"
@@ -55,8 +55,8 @@ alias vi="nvim"
 alias vim="nvim"
 alias e="emacsclient"
 
-# Enhanced lsblk
-alias lsblk="lsblk --output name,label,size,rota,mountpoints,fstype"
+# enhanced lsblk
+alias lsblk="command lsblk --output name,label,size,rota,mountpoints,fstype"
 
 function cd(){
   z "$@" && eza
@@ -118,7 +118,7 @@ packmod() {
     (cd "$1" && zip -r "../${1%/}.zip" .)
 }
 
-if [[ "$INSIDE_EMACS" == 'vterm' ]]; then
+if [[ "$INSIDE_EMACS" == *vterm* ]]; then
     vterm_printf() {
         if [ -n "$TMUX" ] \
             && { [ "${TERM%%-*}" = "tmux" ] \
@@ -152,17 +152,19 @@ if [[ "$INSIDE_EMACS" == 'vterm' ]]; then
     vterm_prompt_end
 fi
 eza
-bindkey -M emacs '^[[A' history-substring-search-up
-bindkey -M viins '^[[A' history-substring-search-up
-bindkey -M vicmd '^[[A' history-substring-search-up
 
-bindkey -M emacs '^[[B' history-substring-search-down
-bindkey -M viins '^[[B' history-substring-search-down
-bindkey -M vicmd '^[[B' history-substring-search-down
+bindkey -M emacs '^[[a' history-substring-search-up
+bindkey -M viins '^[[a' history-substring-search-up
+bindkey -M vicmd '^[[a' history-substring-search-up
+
+bindkey -M emacs '^[[b' history-substring-search-down
+bindkey -M viins '^[[b' history-substring-search-down
+bindkey -M vicmd '^[[b' history-substring-search-down
+
 HISTORY_SUBSTRING_SEARCH_ENSURE_UNIQUE=1
 
 # pnpm
-export PNPM_HOME="/home/hyper/.local/share/pnpm"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 case ":$PATH:" in
   *":$PNPM_HOME:"*) ;;
   *) export PATH="$PNPM_HOME:$PATH" ;;
@@ -171,9 +173,7 @@ esac
 
 export VINTAGE_STORY=/opt/vintagestory
 
-export VINTAGE_STORY=/opt/vintagestory
-
 # bun completions
-[ -s "/home/hyper/.bun/_bun" ] && source "/home/hyper/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
-TERM=xterm-256color
+term=xterm-256color
