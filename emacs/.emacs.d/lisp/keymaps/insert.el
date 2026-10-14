@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; Insert mode specific bindings
 (general-define-key
  :states 'insert

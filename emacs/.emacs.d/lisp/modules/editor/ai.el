@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 (use-package gptel
   :init
   (let* ((key-path (expand-file-name "deepseek-key.txt" user-emacs-directory))

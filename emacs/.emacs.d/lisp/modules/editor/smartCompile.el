@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 (defgroup smart-compile nil
   "Smart compile with per-project command persistence."
   :group 'tools)

@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; Helper functions for visual mode
 (defun evil-shift-left-visual ()
   (interactive)

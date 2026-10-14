@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 (with-eval-after-load 'vertico
   (general-define-key
    :keymaps 'vertico-map

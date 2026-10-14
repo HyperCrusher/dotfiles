@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 (defun ddl ()
   "Look up using DevDocs.io."
   (interactive)

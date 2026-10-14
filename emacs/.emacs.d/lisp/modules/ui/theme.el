@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 (use-package nerd-icons)
 (use-package tokyo-dark
   :straight (tokyo-dark :type git :host github :repo "hypercrusher/tokyo-dark.el")

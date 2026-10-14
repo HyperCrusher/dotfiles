@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 (use-package yasnippet)
 (yas-global-mode 1)
 

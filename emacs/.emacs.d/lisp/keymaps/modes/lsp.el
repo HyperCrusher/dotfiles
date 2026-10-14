@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 (defun smart-rename ()
   (interactive)
   (if (and (boundp 'lsp-bridge-mode) lsp-bridge-mode

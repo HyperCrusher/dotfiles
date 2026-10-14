@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; Reset GC threshold
 (add-hook 'emacs-startup-hook
           (lambda ()

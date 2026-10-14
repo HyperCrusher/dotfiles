@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 (add-hook 'before-save-hook
           (lambda ()
             (when buffer-file-name

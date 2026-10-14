@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; File handling
 (global-auto-revert-mode t)
 (recentf-mode t)

@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 (defvar my/org-special-checkbox-alist
   '((">" "" org-checkbox-cancelled-face)
     ("i" "" org-checkbox-info-face)

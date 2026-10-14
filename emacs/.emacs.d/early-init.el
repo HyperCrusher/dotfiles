@@ -1,4 +1,6 @@
 ;;; Early Init Performance
+(set-default-toplevel-value 'lexical-binding t)
+
 (setq gc-cons-threshold (* 256 1024 1024)) ; 256MB for startup
 (setq process-adaptive-read-buffering nil)
 (setq read-process-output-max (* 1024 1024)) ; 1mb
@@ -9,13 +11,13 @@
 
 ;;; Native Compilation
 (when (and (fboundp 'startup-redirect-eln-cache)
-          (fboundp 'native-comp-available-p)
-          (native-comp-available-p))
- (startup-redirect-eln-cache
-  (convert-standard-filename
-   (expand-file-name  ".cache/eln-cache/" user-emacs-directory))))
+           (fboundp 'native-comp-available-p)
+           (native-comp-available-p))
+  (startup-redirect-eln-cache
+   (convert-standard-filename
+    (expand-file-name  ".cache/eln-cache/" user-emacs-directory))))
 (setq native-comp-async-report-warnings-errors nil)
-(setq native-comp-deferred-compilation t)
+(setq native-comp-jit-compilation t)
 
 ;;; Cache File Locations
 (setq straight-base-dir user-cache-directory)
@@ -38,7 +40,7 @@
 
 ;;; Create Cache Directories
 (dolist (dir '("lsp" "undo" "eshell" "url" "transient" "dirvish" "projectile"))
- (make-directory (expand-file-name dir user-cache-directory) t))
+  (make-directory (expand-file-name dir user-cache-directory) t))
 
 ;;; UI Cleanup
 (push '(menu-bar-lines . 0) default-frame-alist)

@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 (use-package dired-ranger)
 (use-package nerd-icons
   :ensure t)
@@ -21,7 +22,7 @@
   (dirvish-define-preview eza (file)
     "Use `eza' to generate directory preview."
     (when (file-directory-p file)
-      `(shell . ("eza" "-a" "--color=always" "--icons" ,file))))
+      `(shell . ("eza" "-a" "--color=always" "--icons=always" ,file))))
 
   (add-to-list 'dirvish-preview-dispatchers 'eza)
 

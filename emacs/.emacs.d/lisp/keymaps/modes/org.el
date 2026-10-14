@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 (defun hyper/insert-block (type &optional extra-meta)
   (interactive (list (read-string "Block type: ")))
   (if (use-region-p)

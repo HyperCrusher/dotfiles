@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 (defun smart-dirvish ()
   (interactive)
   (if (eq major-mode 'vterm-mode)

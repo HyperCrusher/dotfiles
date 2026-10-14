@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 ;; Core editor behavior
 (setq-default
  indent-tabs-mode nil

@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 (defvar ml-font-scale-factor 1.1
   "The factor by which font in the modeline is scaled (matches your theme setting).")
 

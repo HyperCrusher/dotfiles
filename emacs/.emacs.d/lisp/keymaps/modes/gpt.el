@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 (with-eval-after-load 'gptel
   (add-hook 'gptel-mode-hook
             (lambda ()
