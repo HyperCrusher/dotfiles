@@ -1,6 +1,7 @@
 ;;; -*- lexical-binding: t; -*-
 (use-package magit
   :after evil-collection
+  :commands magit
   :config
   (setopt magit-format-file-function #'magit-format-file-nerd-icons)  
   ;; Save window configuration before commit
@@ -16,12 +17,15 @@
               #'magit-restore-window-configuration--prevent-vterm))
 
 (use-package git-gutter
+  :demand t
   :config
   (setq git-gutter:update-interval 0.02
         git-gutter:window-width 1)
   (custom-set-variables
    '(git-gutter:modified-sign "┃")
    '(git-gutter:added-sign "┃")
-   '(git-gutter:deleted-sign "┆")))
+   '(git-gutter:deleted-sign "┆"))
+  (global-git-gutter-mode 1))
 
-(use-package transient-posframe)
+(use-package transient-posframe
+  :after transient)

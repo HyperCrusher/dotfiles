@@ -15,7 +15,8 @@
 
 (use-package dirvish
   :after evil
-  :hook (dired-mode . auto-revert-mode)
+  :hook ((dired-mode . auto-revert-mode)
+         (dirvish-mode . hl-line-mode))
   :init
   (dirvish-override-dired-mode)
   :config

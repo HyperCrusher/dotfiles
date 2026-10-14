@@ -30,7 +30,7 @@
   "l" 'evil-last-non-blank
   "s"  'consult-ripgrep
   "g"  'magit
-  "t"  'vterm-toggle
+  "t"  'vterm-cd
   "o"  'only
   "p"  'consult-projectile-switch-project
   "c"  'evil-window-delete

@@ -9,23 +9,29 @@
     ("a" "󱉟" org-checkbox-archived-face)
     ("?" "" org-checkbox-uncertain-face)))
 
+(defvar-local org-modern-special-checkboxes-applied nil
+  "Prevent duplicate font-lock keyword additions in the same buffer.")
+
 (defun org-modern-special-checkboxes ()
-  (let ((rules
-         `(("^\\s-*\\([-+*][ \t]+\\)\\[[^]]*\\]"
-            (1 '(face nil display "") prepend)))))
-    (dolist (item my/org-special-checkbox-alist)
-      (let ((char (nth 0 item))
-            (icon (nth 1 item))
-            (face (nth 2 item)))
-        (push `(,(format "^\\s-*\\([-+*][ \t]+\\)\\(\\[\\(%s\\)\\]\\)" (regexp-quote char))
-                (2 (progn (compose-region (match-beginning 2) (match-end 2) ,icon) ',face) append))
-              rules)))
-    (font-lock-add-keywords nil (reverse rules) t)))
+  "Add special checkbox display rules to the current buffer."
+  (unless org-modern-special-checkboxes-applied
+    (let ((rules
+           `(("^\\s-*\\([-+*][ \t]+\\)\\[[^]]*\\]"
+              (1 '(face nil display "") prepend)))))
+      (dolist (item my/org-special-checkbox-alist)
+        (let ((char (nth 0 item))
+              (icon (nth 1 item))
+              (face (nth 2 item)))
+          (push `(,(format "^\\s-*\\([-+*][ \t]+\\)\\(\\[\\(%s\\)\\]\\)" (regexp-quote char))
+                  (2 (progn (compose-region (match-beginning 2) (match-end 2) ,icon) ',face) append))
+                rules)))
+      (font-lock-add-keywords nil (reverse rules) t)
+      (setq org-modern-special-checkboxes-applied t))))
 
 (use-package org-modern
   :after org
   :hook ((org-mode . org-modern-mode)
-         (org-mode . org-modern-special-checkboxes))
+         (org-modern-mode . org-modern-special-checkboxes))
   :config
   (setq org-modern-hide-stars nil
         org-modern-star nil

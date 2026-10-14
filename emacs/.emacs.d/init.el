@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t; -*-
 (defun load-directory (dir)
   "Load all Emacs Lisp files in DIR and its subdirectories."
   (let* ((dir-path (expand-file-name dir user-emacs-directory))
@@ -19,3 +20,8 @@
 
 ;; Run post-init steps
 (load (expand-file-name "lisp/post-init.el" user-emacs-directory))
+
+;; Load custom settings saved by Emacs
+(when (and (boundp 'custom-file)
+           (file-exists-p custom-file))
+  (load custom-file))

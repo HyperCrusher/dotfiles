@@ -1,6 +1,5 @@
+;;; -*- lexical-binding: t; -*-
 ;;; Early Init Performance
-(set-default-toplevel-value 'lexical-binding t)
-
 (setq gc-cons-threshold (* 256 1024 1024)) ; 256MB for startup
 (setq process-adaptive-read-buffering nil)
 (setq read-process-output-max (* 1024 1024)) ; 1mb
@@ -45,7 +44,7 @@
 ;;; UI Cleanup
 (push '(menu-bar-lines . 0) default-frame-alist)
 (push '(tool-bar-lines . 0) default-frame-alist)
-(push '(vertical-scroll-bars) default-frame-alist)
+(push '(vertical-scroll-bars . nil) default-frame-alist)
 (setq inhibit-splash-screen t)
 
 ;;; Performance Optimizations

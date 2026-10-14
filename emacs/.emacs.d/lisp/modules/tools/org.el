@@ -16,26 +16,35 @@
                                     (?3 . "[Low]")
                                     (?4 . "[Backlog]")))
   :hook (org-mode . org-fancy-priorities-mode))
+
 (use-package org-table-sticky-header
   :hook (org-mode . org-table-sticky-header-mode))
-(use-package org-super-agenda)
-(use-package org-rich-yank)
+
+(use-package org-super-agenda
+  :after org
+  :hook (org-agenda-mode . org-super-agenda-mode))
+
+(use-package org-rich-yank
+  :commands org-rich-yank)
 
 (use-package org-autolist
   :straight (:host github :repo "ucizi-turintech/org-autolist" :branch "master")
   :hook (org-mode . org-autolist-mode))
 
 (use-package org-download
+  :commands (org-download-clipboard org-download-yank)
   :config (setq-default org-download-image-dir "~/Org/assets/images"))
 
 (use-package org-auto-tangle
+  :after org
+  :hook (org-mode . org-auto-tangle-mode)
   :config (setq org-auto-tangle-default t))
 
-(use-package ob-nix)
-(use-package ob-go)
-(use-package ob-kotlin)
-(use-package ob-rust)
-(use-package ob-typescript)
+(use-package ob-nix :defer t)
+(use-package ob-go :defer t)
+(use-package ob-kotlin :defer t)
+(use-package ob-rust :defer t)
+(use-package ob-typescript :defer t)
 
 (org-babel-do-load-languages
  'org-babel-load-languages

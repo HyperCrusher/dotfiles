@@ -1,5 +1,6 @@
 ;;; -*- lexical-binding: t; -*-
 (use-package evil
+  :demand t
   :init
   (setq evil-want-integration t
         evil-vsplit-window-right t
@@ -12,10 +13,16 @@
   (evil-mode 1))
 
 (use-package evil-collection
-  :after evil)
+  :after evil
+  :demand t
+  :config
+  (evil-collection-init))
 
 (use-package evil-numbers
-  :after evil)
+  :after evil
+  :commands (evil-numbers/inc-at-pt
+             evil-numbers/dec-at-pt
+             evil-numbers/inc-at-pt-incremental))
 
 (use-package evil-commentary
   :after evil-collection
@@ -26,10 +33,17 @@
   :hook (after-change-major-mode . enable-evil-comments))
 
 (use-package centered-cursor-mode
+  :demand t
   :config
   (setq ccm-step-size 1
-        scroll-margin 8))
+        scroll-margin 8)
+  (global-centered-cursor-mode 1))
 
-(use-package evil-quickscope)
+(use-package evil-quickscope
+  :demand t
+  :config
+  (global-evil-quickscope-mode 1))
 
-(use-package drag-stuff)
+(use-package drag-stuff
+  :defer t
+  :commands (drag-stuff-down drag-stuff-up))

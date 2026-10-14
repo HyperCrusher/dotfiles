@@ -1,6 +1,8 @@
 ;;; -*- lexical-binding: t; -*-
-(use-package yasnippet)
-(yas-global-mode 1)
+(use-package yasnippet
+  :demand t
+  :config
+  (yas-global-mode 1))
 
 (use-package lsp-bridge
   :straight '(lsp-bridge :type git :host github :repo "manateelazycat/lsp-bridge"

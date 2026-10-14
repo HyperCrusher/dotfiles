@@ -47,23 +47,46 @@
 
 
 (use-package fasm-mode :mode ("\\.asm\\'" . fasm-mode))
-(use-package glsl-mode)
-(use-package haskell-mode)
+
+(use-package glsl-mode
+  :commands (glsl-mode glsl-ts-mode))
+
+(use-package haskell-mode
+  :commands (haskell-mode haskell-ts-mode))
+
 (use-package hyprlang-ts-mode
   :mode ("/hypr/.*\\.conf\\'"))
-(use-package kotlin-mode)
-(use-package markdown-mode)
+
+(use-package kotlin-mode
+  :commands (kotlin-mode kotlin-ts-mode))
+
+(use-package markdown-mode
+  :commands (markdown-mode))
+
 (use-package rust-mode
   :init
-  (setq rust-mode-treesitter-derive t))
-(use-package svelte-mode)
-(use-package wgsl-mode)
-(use-package web-mode)
-(use-package yuck-mode)
-(use-package zig-mode)
+  (setq rust-mode-treesitter-derive t)
+  :commands (rust-mode rust-ts-mode))
+
+(use-package svelte-mode
+  :commands (svelte-mode svelte-ts-mode))
+
+(use-package wgsl-mode
+  :commands (wgsl-mode wgsl-ts-mode))
+
+(use-package web-mode
+  :commands web-mode)
+
+(use-package yuck-mode
+  :commands (yuck-mode yuck-ts-mode))
+
+(use-package zig-mode
+  :commands (zig-mode zig-ts-mode))
 
 (use-package slint-mode
-  :straight (:host github :repo "nilclass/slint-mode"))
+  :straight (:host github :repo "nilclass/slint-mode")
+  :commands (slint-mode slint-ts-mode))
+
 (define-derived-mode slint-ts-mode slint-mode "Slint TS"
   :group 'slint
   (when (treesit-ready-p 'slint)
@@ -99,7 +122,6 @@
         (kotlin-mode         . kotlin-ts-mode)
         (makefile-mode       . makefile-ts-mode)
         (makefile-gmake-mode . makefile-ts-mode)
-        (markdown-mode       . markdown-ts-mode)
         (python-mode         . python-ts-mode)
         (rust-mode           . rust-ts-mode)
         (sh-mode             . bash-ts-mode)
@@ -127,5 +149,4 @@
           (lambda ()
             (when (and buffer-file-name
                        (string-match-p "\\.ai\\'" buffer-file-name))
-              (gptel-mode 1)
               (visual-line-mode 1))))

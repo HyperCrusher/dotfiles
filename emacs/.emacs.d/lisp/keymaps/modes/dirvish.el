@@ -5,9 +5,9 @@
     (interactive)
     (let ((name (read-string "Create: ")))
       (if (string-suffix-p "/" name)
-          (dired-create-directory (substring name 0 -1))
-        (shell-command (concat "touch " name))
-        (revert-buffer))))
+          (make-directory (substring name 0 -1) t)
+        (make-empty-file name t))
+      (revert-buffer)))
 
   (defun shell-command-here ()
     (interactive)
@@ -34,17 +34,9 @@
 
   (defun open-vterm ()
     (interactive)
-    (require 'vterm)
-    (let ((target-dir (expand-file-name default-directory))
-          (vterm-buffer (get-buffer "*vterm*")))
+    (let ((dir (expand-file-name default-directory)))
       (dirvish-quit)
-      (if (buffer-live-p vterm-buffer)
-          (progn
-            (switch-to-buffer vterm-buffer)
-            (vterm-send-string (concat "cd " (shell-quote-argument target-dir) "\n"))
-            (vterm-send-string "clear\n"))
-        (let ((default-directory target-dir))
-          (vterm)))))
+      (vterm-cd dir)))
 
   (general-define-key
    :states 'normal

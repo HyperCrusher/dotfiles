@@ -1,6 +1,6 @@
 ;;; -*- lexical-binding: t; -*-
 (use-package general
-  :after evil)
+  :demand t)
 
 ;; Global escape behavior
 (defun minibuffer-keyboard-quit ()
@@ -32,10 +32,10 @@
             minibuffer-local-isearch-map)
  "<escape>" 'minibuffer-keyboard-quit)
 
-(general-define-key
- :keymaps 'transient-map
- "<escape>" 'transient-quit-one)
+(with-eval-after-load 'transient
+  (general-define-key
+   :keymaps 'transient-map
+   "<escape>" 'transient-quit-one))
 
 (general-define-key
  "<escape>" 'evil-exit-emacs-state)
-
