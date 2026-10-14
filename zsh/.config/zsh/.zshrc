@@ -49,44 +49,78 @@ alias search="yay -Ss"
 alias install="yay -S"
 alias remove="yay -Rns"
 
-# Nvim
-alias nvim="emacsclient"
+# nvim
+alias nvim="emacsclient -n"
 alias vi="nvim"
 alias vim="nvim"
-alias e="emacsclient"
+alias e="emacsclient -n"
 
 # enhanced lsblk
 alias lsblk="command lsblk --output name,label,size,rota,mountpoints,fstype"
 
 function cd(){
-  z "$@" && eza
+  if [[ "$1" == "-" ]]; then
+    builtin cd - && eza
+  elif [[ $# -eq 0 ]]; then
+    builtin cd ~ && eza
+  elif z "$@"; then
+    eza
+  else
+    builtin cd "$@" && eza
+  fi
 }
 
 clear(){
   command clear && eza
 }
+
 rm() {
-  command rm -r "$@" && eza;
+  command rm -r --preserve-root "$@" && eza
 }
+
 mkdir() {
-  command mkdir -pv "$@" && eza;
+  command mkdir -pv "$@" && eza
 }
 
 touch() {
-  command touch "$@" && eza;
+  command touch "$@" && eza
 }
 
 unpack() {
   local archive="$1"
+  [[ -f "$archive" ]] || { echo "unpack: not a file: $archive" >&2; return 1; }
+
   local file
   file=$(basename "$archive")
-  local target_dir="${file%%.*}"
+  local target_dir="$file"
+
+  local ext
+  for ext in .tar.gz .tar.zst .tar.bz2 .tar.xz .tar.lz .tar.lzma \
+             .tgz .tbz2 .txz .zip .rar .7z .gz .bz2 .xz .zst \
+             .iso .jar; do
+    if [[ "$target_dir" == *"$ext" ]]; then
+      target_dir="${target_dir%$ext}"
+      break
+    fi
+  done
+
+  [[ -n "$target_dir" ]] || target_dir="unpacked"
+
   command mkdir -p "$target_dir"
-  command 7z t "$archive" -p"" > /dev/null 2>&1
-  if [[ $? -ne 0 ]]; then
-    echo "Password:"
+
+  local password=""
+  if ! command 7z t "$archive" -p >/dev/null 2>&1; then
+    printf "Password: "
+    read -s password
+    echo
   fi
-  command 7z x "$archive" -o"$target_dir" -bso0
+
+  if [[ -n "$password" ]]; then
+    command 7z x "$archive" -o"$target_dir" -bso0 -p"$password"
+  else
+    command 7z x "$archive" -o"$target_dir" -bso0
+  fi
+
   eza
 }
 
@@ -96,18 +130,20 @@ pack() {
 
   case "$format" in
     zip)
-      command 7z a "${output}.zip" "$@[3,-1]"
+      command 7z a "${output}.zip" "${@[3,-1]}"
       ;;
     tar)
-      command 7z a -m0=zstd -mx=9 "${output}.tar.zst" "$@[3,-1]"
+      command 7z a -m0=zstd -mx=9 "${output}.tar.zst" "${@[3,-1]}"
       ;;
     rar)
-      command rar a -m3 -idq "${output}.rar" "$@[3,-1]"
+      command rar a -m3 -idq "${output}.rar" "${@[3,-1]}"
       ;;
     *)
+      ;;
   esac
   eza
 }
+
 packmod() {
     if [ -z "$1" ]; then
         return 1
@@ -123,34 +159,35 @@ if [[ "$INSIDE_EMACS" == *vterm* ]]; then
         if [ -n "$TMUX" ] \
             && { [ "${TERM%%-*}" = "tmux" ] \
                 || [ "${TERM%%-*}" = "screen" ]; }; then
-            printf "\ePtmux;\e\e]%s\007\e\\" "$1"
+            printf "\eptmux;\e\e]%s\007\e\\" "$1"
         elif [ "${TERM%%-*}" = "screen" ]; then
-            printf "\eP\e]%s\007\e\\" "$1"
+            printf "\ep\e]%s\007\e\\" "$1"
         else
             printf "\e]%s\e\\" "$1"
         fi
     }
 
     vterm_cmd() {
-        local vterm_elisp
-        vterm_elisp=""
+        local vterm_elisp=""
         while [ $# -gt 0 ]; do
             vterm_elisp="$vterm_elisp""$(printf '"%s" ' "$(printf "%s" "$1" | sed -e 's|\\|\\\\|g' -e 's|"|\\"|g')")"
             shift
         done
-        vterm_printf "51;E$vterm_elisp"
+        vterm_printf "51;e$vterm_elisp"
     }
 
     ff() {
-        vterm_cmd find-file "$(realpath "${@:-.}")"
+        vterm_cmd find-file "${@:-.}"
     }
+
     vterm_prompt_end() {
-        vterm_printf "51;A$(whoami)@$(hostname):$(pwd)"
+        vterm_printf "51;a$USER@${HOST%%.*}:$PWD" > /dev/tty
     }
-    autoload -U add-zsh-hook
-    add-zsh-hook -Uz chpwd () { vterm_prompt_end }
-    vterm_prompt_end
+
+    autoload -Uz add-zsh-hook
+    add-zsh-hook precmd vterm_prompt_end
 fi
+
 eza
 
 bindkey -M emacs '^[[a' history-substring-search-up
