@@ -12,9 +12,16 @@
   (general-define-key
    :states 'normal
    :keymaps 'gptel-mode-map
-   "gm" 'ai-mode)
+   :prefix "g"
+   "m" 'ai-mode)
 
   (general-define-key
    :states 'insert
    :keymaps 'gptel-mode-map
    "<return>" 'gptel-smart-enter))
+
+(with-eval-after-load 'aidermacs
+  (general-define-key
+   :states 'normal
+   :prefix "SPC"
+   "a" 'aidermacs-transient-menu))
