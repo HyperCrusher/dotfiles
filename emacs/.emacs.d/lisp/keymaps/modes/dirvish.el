@@ -1,4 +1,5 @@
 ;;; -*- lexical-binding: t; -*-
+
 (with-eval-after-load 'dirvish
 
   (defun create-file-or-dir ()

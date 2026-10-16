@@ -2,3 +2,5 @@
 nvim/.config/nvim/lua/lazy-lock.json
 nvim/.config/nvim/lazy-lock.json
 /emacs/.emacs.d/elpa
+/emacs/.emacs.d/.env
+/emacs/.emacs.d/projectile-frecency.eld

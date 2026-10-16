@@ -1,114 +1,178 @@
 ;;; -*- lexical-binding: t; -*-
+
+(defvar ai-env-file (expand-file-name ".env" user-emacs-directory))
+
+(defun ai-env-value (key)
+  (when (file-exists-p ai-env-file)
+    (with-temp-buffer
+      (insert-file-contents ai-env-file)
+      (let ((case-fold-search t))
+        (when (re-search-forward
+               (format "^%s[ \t]*=[ \t]*\\(.*\\)$" (regexp-quote key))
+               nil t)
+          (let ((value (string-trim (match-string 1))))
+            (cond
+             ((string-match "\\`\"\\(.*\\)\"\\'" value)
+              (match-string 1 value))
+             ((string-match "\\`'\\(.*\\)'\\'" value)
+              (match-string 1 value))
+             (t value))))))))
+
+(defun ai-deepseek-key ()
+  (or (getenv "DEEPSEEK_API_KEY")
+      (ai-env-value "DEEPSEEK_API_KEY")))
+
+(defvar ai-lite-backend nil)
+(defvar ai-flash-backend nil)
+(defvar ai-pro-backend nil)
+(defvar ai-max-backend nil)
+
+(defun ai-init-backends ()
+  (require 'gptel)
+  (unless ai-lite-backend
+    (let ((key (or (ai-deepseek-key)
+                   (user-error "DEEPSEEK_API_KEY not found in %s or environment"
+                               ai-env-file))))
+      (setq ai-lite-backend
+            (gptel-make-deepseek "Lite"
+                                 :key key
+                                 :stream t
+                                 :models '("deepseek-v4-flash")
+                                 :request-params '(:thinking (:type "disabled")))
+
+            ai-flash-backend
+            (gptel-make-deepseek "Flash"
+                                 :key key
+                                 :stream t
+                                 :models '("deepseek-v4-flash")
+                                 :request-params nil)
+
+            ai-pro-backend
+            (gptel-make-deepseek "Pro"
+                                 :key key
+                                 :stream t
+                                 :models '("deepseek-v4-pro")
+                                 :request-params nil)
+
+            ai-max-backend
+            (gptel-make-deepseek "Max"
+                                 :key key
+                                 :stream t
+                                 :models '("deepseek-v4-pro")
+                                 :request-params '(:thinking (:type "enabled")
+                                                            :reasoning_effort "max"))))))
+
+(defun ai-mode (mode-key)
+  (interactive
+   (list (completing-read "AI mode: "
+                          '("lite" "flash" "pro" "max")
+                          nil t)))
+  (ai-init-backends)
+  (pcase mode-key
+    ("lite"
+     (setq gptel-backend ai-lite-backend
+           gptel-model 'deepseek-v4-flash))
+    ("flash"
+     (setq gptel-backend ai-flash-backend
+           gptel-model 'deepseek-v4-flash))
+    ("pro"
+     (setq gptel-backend ai-pro-backend
+           gptel-model 'deepseek-v4-pro))
+    ("max"
+     (setq gptel-backend ai-max-backend
+           gptel-model 'deepseek-v4-pro))
+    (_
+     (user-error "Unknown AI mode: %s" mode-key))))
+
 (use-package gptel
-  :init
-  (let* ((key-path (expand-file-name "deepseek-key.txt" user-emacs-directory))
-         (key (when (file-exists-p key-path)
-                (with-temp-buffer
-                  (insert-file-contents key-path)
-                  (string-trim (buffer-string))))))
-    (setq
-     gptel-flash-backend (gptel-make-deepseek "DeepSeek Flash"
-                           :key key
-                           :stream t
-                           :models '("deepseek-v4-flash")
-                           :request-params '(:thinking (:type "disabled")))
-     gptel-pro-backend (gptel-make-deepseek "DeepSeek Pro"
-                         :key key
-                         :stream t
-                         :models '("deepseek-v4-pro")
-                         :request-params '(:thinking (:type "enabled")))
-     gptel-default-mode 'org-mode
-     gptel-model 'deepseek-v4-flash
-     gptel-backend gptel-flash-backend))
+  :straight (gptel :build (:not compile))
+  :custom
+  (gptel-default-mode 'org-mode)
+  (gptel-max-entries 30)
   :config
+  (ai-mode "flash")
+
+  (defun ai-add (&optional file)
+    (interactive
+     (list (or buffer-file-name
+               (when (derived-mode-p 'dired-mode)
+                 (dired-get-filename))
+               (read-file-name "Add file to gptel context: "))))
+    (unless file
+      (user-error "No file selected"))
+    (gptel-add-file file))
+
+  (defun ai-clear ()
+    (interactive)
+    (let ((gptel-context--confirm-remove nil))
+      (gptel-context-remove-all)))
+
   (setq gptel-include-reasoning nil)
-  (setq gptel-system-prompt "You are a large language model living in Emacs and a helpful assistant. Respond concisely.
+
+  (setq gptel-system-prompt
+        "You are a large language model living in Emacs and a helpful assistant. Respond concisely.
 Follow these rules strictly:
 
 - Never include comments in any code you produce.
 - When answering questions, explain without code whenever possible. Provide code only if strictly necessary or explicitly requested.
 - When giving feedback, be direct and unbiased. Avoid empty praise or flattery. Offer honest, constructive, down-to-earth suggestions for improvement.")
-  (add-hook 'gptel-post-response-functions #'gptel-end-of-response))
 
-(defun gpt-chat ()
-  (interactive)
-  (setq-local gptel-model 'deepseek-v4-flash)
-  (setq-local gptel-backend gptel-flash-backend)
-  (call-interactively #'gptel))
+  (add-hook 'gptel-post-response-functions #'gptel-end-of-response)
 
-(defun gpt-mode ()
-  (interactive)
-  (if (eq gptel-model 'deepseek-v4-flash)
-      (progn
-        (setq-local gptel-model 'deepseek-v4-pro)
-        (setq-local gptel-backend gptel-pro-backend))
-    (setq-local gptel-model 'deepseek-v4-flash)
-    (setq-local gptel-backend gptel-flash-backend))) 
-
-(defun gpt-add (file)
-  (interactive "fAdd file to gptel context: ")
-  (gptel-add-file file))
-
-(defun gpt-clear ()
-  (interactive)
-  (let ((gptel-context--confirm-remove nil))
-    (gptel-context-remove-all)))
-
-(defun gpt-commit ()
-  (interactive)
-  (call-interactively #'gptel-commit))
+  (with-eval-after-load 'evil
+    (evil-set-initial-state 'gptel-mode 'insert)))
 
 (use-package gptel-commit
+  :straight t
   :after (gptel magit)
+  :init
+  (setq gptel-commit-prompt
+        "Generate a conventional Git commit message for the current diff.
+
+Rules:
+- Use conventional commit type prefix when appropriate: feat, fix, refactor, docs, chore, test, style, perf, ci, build.
+- If the change is trivial or single-purpose, output only a subject line.
+- If the change contains multiple logical changes, output a subject line, blank line, then one bullet point per logical change.
+
+Subject rules:
+- Imperative present tense (e.g., 'Add feature' not 'Added feature' or 'Adds feature')
+- Max 72 characters
+- Capitalize first letter after type prefix
+- No trailing period
+- Be specific and concise
+
+Body rules:
+- Wrap at 72 characters
+- Explain why/what, not how
+- Do not repeat the subject
+- Use hyphen bullet points, not markdown
+
+Output only the commit message. Do not include explanations, commentary, or code fences.")
   :config
   (setq gptel-commit-stream nil
         gptel-commit-model 'deepseek-v4-flash)
-  :init
-  (setq gptel-commit-prompt
-        "Generate a Git commit message following conventional style rules.
 
-OUTPUT FORMAT:
-- Subject line only (if changes are trivial/single purpose)
-- Or subject + blank line + bullet point body (for multiple changes)
+  (defun ai-commit-lite ()
+    (let ((gptel-backend ai-lite-backend)
+          (gptel-model 'deepseek-v4-flash)
+          (gptel-commit-model 'deepseek-v4-flash))
+      (call-interactively #'gptel-commit)))
 
-SUBJECT RULES:
-- Past tense, imperative mood (e.g., 'Fix bug' not 'Fixes bug' or 'Fixed bug')
-- Max 50 characters
-- Capitalize first letter
-- No trailing period
-- Single specific change per subject
+  (defun ai-commit-max ()
+    (let ((gptel-backend ai-max-backend)
+          (gptel-model 'deepseek-v4-pro)
+          (gptel-commit-model 'deepseek-v4-pro))
+      (call-interactively #'gptel-commit)))
 
-BODY RULES (when needed):
-- Only include if changes need explanation beyond subject
-- Wrap at 72 characters
-- One bullet point per logical change
-- No redundant restatement of subject
+  (defun ai-commit (mode)
+    (interactive
+     (list (completing-read "AI commit: " '("lite" "max") nil t nil nil "lite")))
+    (pcase mode
+      ("lite" (ai-commit-lite))
+      ("max" (ai-commit-max))
+      (_ (user-error "Unknown AI commit mode: %s" mode))))
 
-EXAMPLES:
-
-Fix memory leak in cache cleanup
-
-- Add null check before freeing pointer
-- Reset reference count to zero
-
-Add validation for email input
-
-Update README formatting
-
-DO NOT:
-- Include explanatory text, commentary, or the diff
-- Repeat the subject in the body
-- Use markdown or code blocks
-- Write multi-paragraph prose"))
-
-(add-hook 'git-commit-mode-hook
-          (lambda ()
-            (evil-local-set-key 'normal (kbd "SPC g") 'gpt-commit)))
-
-(defun gptel-complete-function ()
-  (interactive)
-  (if (use-region-p)
-      (let ((gptel-system-message "You are a professional systems programmer. Complete the provided function signature. Return ONLY the code for the function body and signature. No explanations, no markdown blocks, and no commentary."))
-        (gptel-rewrite (region-beginning) (region-end)
-                       :directive "Complete the function using the provided signature"))
-    (user-error "Please highlight a function signature first")))
+  (with-eval-after-load 'evil
+    (add-hook 'git-commit-mode-hook
+              (lambda ()
+                (evil-local-set-key 'normal (kbd "SPC g") #'ai-commit)))))
