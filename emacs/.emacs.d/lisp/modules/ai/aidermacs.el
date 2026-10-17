@@ -27,7 +27,7 @@
 
 (defconst aidermacs--model-strong "deepseek/deepseek-v4-pro")
 (defconst aidermacs--model-weak "deepseek/deepseek-flash")
-
+;; 
 (defconst aidermacs--aider-extra-args
   '("--user-input-color" "95c561"
     "--tool-error-color" "ee6d85"
@@ -95,7 +95,7 @@
   (setenv "CECLI_TUI_CONFIG" (aidermacs--cecli-tui-config-json)))
 
 (use-package aidermacs
-  :straight t
+  :straight (aidermacs :type git :host github :repo "MatthewZMD/aidermacs")
   :custom
   (aidermacs-backend 'vterm)
   (aidermacs-vterm-multiline-newline-key "S-<return>")

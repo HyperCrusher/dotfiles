@@ -10,6 +10,7 @@
                   (compilation-shell-minor-mode 1)
                   (centered-cursor-mode -1)))
   :config
+  (setenv "COLORTERM" "truecolor")
   (define-key vterm-mode-map (kbd "M-n") #'compilation-next-error)
   (define-key vterm-mode-map (kbd "M-p") #'compilation-previous-error)
   (evil-set-initial-state 'vterm-mode 'insert))
