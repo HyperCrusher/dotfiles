@@ -42,6 +42,8 @@
         "--weak-model" aidermacs--model-weak
         "--editor-model" aidermacs--model-weak
         "--ask"
+        "--no-stream"
+        "--no-show-thinking"
         "--tui"))
 
 (defconst aidermacs--cecli-tui-color-keys
