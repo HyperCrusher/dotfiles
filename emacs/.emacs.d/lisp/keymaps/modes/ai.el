@@ -1,24 +1,17 @@
 ;;; -*- lexical-binding: t; -*-
 
-(defun gptel-smart-enter ()
-  (interactive)
-  (if (save-excursion
-        (beginning-of-line)
-        (looking-at-p "^\\*+ "))
-      (call-interactively #'gptel-send)
-    (newline)))
-
 (with-eval-after-load 'gptel
   (general-define-key
    :states 'normal
    :keymaps 'gptel-mode-map
    :prefix "g"
-   "m" 'ai-mode)
+   "m" 'ai-mode))
 
+(with-eval-after-load 'gptel
   (general-define-key
-   :states 'insert
+   :states 'normal
    :keymaps 'gptel-mode-map
-   "<return>" 'gptel-smart-enter))
+   "S-<return>" #'gptel-send))
 
 (with-eval-after-load 'aidermacs
   (general-define-key
