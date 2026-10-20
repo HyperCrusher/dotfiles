@@ -17,6 +17,27 @@
                                     (?4 . "[Backlog]")))
   :hook (org-mode . org-fancy-priorities-mode))
 
+
+(use-package textui
+  :straight (:host github :repo "yibie/textui" :build nil)
+  :defer t)
+
+(use-package org-table-widget
+  :straight (:host github :repo "yibie/org-table-widget" :build nil)
+  :defer t)
+
+;; After use-package has run straight, manually add the repo directories
+(let ((repos (expand-file-name ".cache/straight/repos" user-emacs-directory)))
+  (add-to-list 'load-path (expand-file-name "textui" repos))
+  (add-to-list 'load-path (expand-file-name "org-table-widget" repos)))
+
+;; Load and enable after org-mode is up
+(add-hook 'org-mode-hook
+          (lambda ()
+            (require 'textui)
+            (require 'org-table-widget)
+            (org-table-widget-mode)))
+
 (use-package org-table-sticky-header
   :hook (org-mode . org-table-sticky-header-mode))
 

@@ -35,6 +35,7 @@
   :config
   (setq org-modern-hide-stars nil
         org-modern-star nil
+        org-modern-table nil
         org-modern-block-name nil
         org-modern-list '((?+ . " ") (?- . " ") (?* . " "))
         org-modern-checkbox '((?X . "") (?- . "") (?\s . ""))))
