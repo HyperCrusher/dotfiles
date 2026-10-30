@@ -7,7 +7,8 @@
  tab-width 2
  confirm-kill-processes nil
  require-final-newline t
- vc-follow-symlinks t)
+ vc-follow-symlinks t
+ fill-column 120)
 
 ;; Line numbers
 (setq display-line-numbers-type 'relative)

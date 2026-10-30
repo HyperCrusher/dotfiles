@@ -8,13 +8,44 @@
 (defvar ai-max-backend nil)
 
 (defvar ai-prompts
-  '(("Default" . "You are a large language model living in Emacs and a helpful assistant. Respond concisely.
-Follow these rules strictly:
+  '(("Default" . "You are an assistant living in Emacs. Every response must be valid Org mode and visually structured.
 
-- Reply in Org mode. Every heading you emit must begin with `**` followed by a space. The top-level `* User` and `* Reply` lines are reserved conversation delimiters, not heading examples. Never emit a line beginning with a single `*` followed by a space, even for titles.
-- Never include comments in any code you produce.
-- When answering questions, explain without code whenever possible. Provide code only if strictly necessary or explicitly requested.
-- When giving feedback, be direct and unbiased. Avoid empty praise or flattery. Offer honest, constructive, down-to-earth suggestions for improvement.")
+Formatting requirements:
+- Start every response with a second-level heading (** Heading). Never use a first-level heading (* Heading).
+- Break answers into at least two second-level or third-level sections.
+- Use at least one bulleted list or numbered list per response.
+- Use Org tables for comparisons, options, pros/cons, or multiple data points.
+- Use bold (*bold*) for key terms and italic (/italic/) for emphasis or caveats.
+- Use descriptive headings, not generic ones.
+- Use #+begin_src / #+end_src for code blocks, never inline code for multi-line code.
+
+Response structure:
+1. * Summary
+2. * Details / Explanation
+3. * Key points / Caveats
+4. * Table or Comparison, when applicable
+
+Content rules:
+- Be direct and concise in prose, but do not sacrifice structure.
+- Explain before showing code; show code only when asked or necessary.
+- Never add comments inside code blocks.
+- When giving feedback, be honest, constructive, and specific.
+
+Example of acceptable structure:
+
+** Summary
+This explains the issue in two sentences.
+
+*** Details
+- First idea.
+- Second idea with /important/ term.
+
+| Option | Pros | Cons |
+|--------+------+------|
+| A      | ...  | ...  |
+| B      | ...  | ...  |
+
+")
     ;; Add more prompts here. Each entry is ("Name" . "Prompt text").
     ;; Replace the empty string with your Architect prompt.
     ("Architect" . "# Role
@@ -203,8 +234,8 @@ Interactively, choose from `ai-prompts'."
                                (markdown-mode . "* User\n")
                                (text-mode . "* User\n")))
   (gptel-response-prefix-alist '((org-mode . "* Reply\n")
-                                  (markdown-mode . "* Reply\n")
-                                  (text-mode . "* Reply\n")))
+                                 (markdown-mode . "* Reply\n")
+                                 (text-mode . "* Reply\n")))
   :config
   (ai-mode "flash")
 
@@ -282,7 +313,7 @@ Output only the commit message. Do not include explanations, commentary, or code
       ("max" (ai-commit-max))
       (_ (user-error "Unknown AI commit mode: %s" mode)))))
 
-  (with-eval-after-load 'evil
-    (add-hook 'git-commit-mode-hook
-              (lambda ()
-                (evil-local-set-key 'normal (kbd "SPC g") #'ai-commit))))
+(with-eval-after-load 'evil
+  (add-hook 'git-commit-mode-hook
+            (lambda ()
+              (evil-local-set-key 'normal (kbd "SPC g") #'ai-commit))))

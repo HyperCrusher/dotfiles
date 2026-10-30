@@ -7,7 +7,8 @@
         org-highest-priority 1
         org-lowest-priority 4
         org-default-priority 4)
-  :hook (org-mode . org-indent-mode))
+  :hook ((org-mode . org-indent-mode)
+         (org-mode . visual-line-mode)))
 
 (use-package org-fancy-priorities
   :config
