@@ -15,7 +15,7 @@ hl.config({
 		gaps_out = 10,
 		border_size = 1,
 		resize_on_border = false,
-		allow_tearing = false,
+		allow_tearing = true,
 		layout = "dwindle",
 		col = {
 			active_border = "rgba(bdadeabf)",

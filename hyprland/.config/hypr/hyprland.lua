@@ -1,6 +1,7 @@
-local hs = require("hyprsplit")
-require("autostart")
+require("hyprsplit")
 require("monitors")
+
+require("autostart")
 
 require("general")
 

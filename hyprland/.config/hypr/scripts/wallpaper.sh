@@ -1,21 +1,20 @@
 #!/bin/bash
 
-dir="$HOME/Pictures/wallpapers"
+wallDir="$HOME/Pictures/wallpapers"
 
-if [ ! -d "$dir" ]; then
-  exit 1
-fi
-
-monitors=$(hyprctl monitors | grep "Monitor" | awk '{print $2}')
-
-walls=($(find "$dir" -type f \( -name "*.jpg" -o -name "*.jpeg" -o -name "*.png" -o -name "*.webp" \)))
-
-if [ ${#walls[@]} -eq 0 ]; then
-    echo "No wallpapers found"
+if [ ! -d "$wallDir" ]; then
+    echo "Wallpaper directory not found: $wallDir" >&2
     exit 1
 fi
 
-for M in $monitors; do
-  rWall="${walls[$RANDOM % ${#walls[@]}]}"
-  hyprctl hyprpaper wallpaper "$M,$rWall"
+mapfile -t monitors < <(hyprctl monitors -j | jq -r '.[].name')
+mapfile -d '' walls < <(find "$wallDir" -type f \( -iname "*.jpg" -o -iname "*.jpeg" -o -iname "*.png" -o -iname "*.webp" \) -print0)
+
+if [ ${#walls[@]} -eq 0 ]; then
+    exit 1
+fi
+
+for monitor in "${monitors[@]}"; do
+    randomWall="${walls[RANDOM % ${#walls[@]}]}"
+    hyprctl hyprpaper wallpaper "$monitor,$randomWall"
 done

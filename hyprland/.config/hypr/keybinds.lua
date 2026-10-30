@@ -1,24 +1,25 @@
 local hs = require("hyprsplit")
-local mod = "SUPER"
+local mainMod = "SUPER" -- modifiers must be uppercase on Hyprland 0.56
 
-hl.bind(mod .. " + RETURN", hl.dsp.exec_cmd("ghostty"))
-hl.bind(mod .. " + SPACE", hl.dsp.exec_cmd("rofi -show drun"))
-hl.bind(mod .. " + w", hl.dsp.exec_cmd("~/.config/hypr/scripts/wallpaper.sh"))
-hl.bind("PRINT", hl.dsp.exec_cmd("hyprshot -m region --clipboard-only"))
+hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd('emacsclient -c -a ""'))
+hl.bind(mainMod .. " + Space", hl.dsp.exec_cmd("rofi -show drun"))
+hl.bind(mainMod .. " + w", hl.dsp.exec_cmd("~/.config/hypr/scripts/wallpaper.sh"))
+hl.bind("Print", hl.dsp.exec_cmd("hyprshot -m region --clipboard-only"))
 
-hl.bind(mod .. " + C", hl.dsp.window.close())
-hl.bind(mod .. " + M", hl.dsp.window.fullscreen())
-hl.bind(mod .. " + d", hl.dsp.window.float())
+hl.bind(mainMod .. " + c", hl.dsp.window.close())
+hl.bind(mainMod .. " + m", hl.dsp.window.fullscreen())
+hl.bind(mainMod .. " + d", hl.dsp.window.float())
 
-hl.bind(mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
-hl.bind(mod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
+hl.bind(mainMod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
+hl.bind(mainMod .. " + mouse:272", hl.dsp.window.drag(), { mouse = true })
 
-hl.bind(mod .. " + h", hl.dsp.focus({ direction = "left" }))
-hl.bind(mod .. " + j", hl.dsp.focus({ direction = "down" }))
-hl.bind(mod .. " + k", hl.dsp.focus({ direction = "up" }))
-hl.bind(mod .. " + l", hl.dsp.focus({ direction = "right" }))
+hl.bind(mainMod .. " + h", hl.dsp.focus({ direction = "left" }))
+hl.bind(mainMod .. " + j", hl.dsp.focus({ direction = "down" }))
+hl.bind(mainMod .. " + k", hl.dsp.focus({ direction = "up" }))
+hl.bind(mainMod .. " + l", hl.dsp.focus({ direction = "right" }))
 
-hl.bind(mod .. " + right", hs.dsp.focus({ workspace = "r+1" }))
-hl.bind(mod .. " + left", hs.dsp.focus({ workspace = "r-1" }))
-hl.bind(mod .. " + up", hs.dsp.focus({ workspace = "r+1" }))
-hl.bind(mod .. " + down", hs.dsp.focus({ workspace = "r-1" }))
+-- Up/Down mirror Right/Left so either hand can switch on a split keyboard
+hl.bind(mainMod .. " + Right", hs.dsp.focus({ workspace = "r+1" }))
+hl.bind(mainMod .. " + Left", hs.dsp.focus({ workspace = "r-1" }))
+hl.bind(mainMod .. " + Up", hs.dsp.focus({ workspace = "r+1" }))
+hl.bind(mainMod .. " + Down", hs.dsp.focus({ workspace = "r-1" }))
